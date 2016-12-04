@@ -1,0 +1,10 @@
+@import "type-reset/params",
+        "type-reset/reset",
+        "type-reset/type";
+
+body {
+    box-sizing: content-box;
+    max-width: $font-size * 32;
+    margin: 0 auto;
+    padding: 0 $leading ($vertical-rhythm * $margin-scale-h1 * 2) $leading;
+}

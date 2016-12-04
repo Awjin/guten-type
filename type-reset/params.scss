@@ -1,0 +1,33 @@
+$font-family-serif: Georgia, serif;
+$font-family-sans:  Tahoma, sans-serif;
+$font-family-mono:  "Droid Sans Mono", monospace;
+
+$font-size: 17px;
+
+$font-scale-h1:   2.0;
+$font-scale-h2:   1.5;
+$font-scale-h3:   1.1;
+$font-scale-h4:   1.0;
+$font-scale-mono: 0.9;
+
+$margin-scale-h1: 5.5;
+$margin-scale-h2: 3.5;
+$margin-scale-h3: 1.5;
+$margin-scale-h4: 1.0;
+
+$color-background: #FFFEFC;
+$color-text:       #212121;
+$color-text-light: #424242;
+$color-actionable: #FF3D00;
+$color-line:       #B8B8B8;
+
+
+/******************************************************************************/
+
+
+$line-height:         1.5;
+$line-height-heading: 1.4;
+$line-height-list:    1.6;
+
+$leading:         $line-height + 0rem;
+$vertical-rhythm: $line-height * $font-size / $line-height-heading;
