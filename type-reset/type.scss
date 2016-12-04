@@ -43,7 +43,7 @@ p, ol, ul {
 }
 
 p + ol, p + ul {
-    margin-top: $leading / -4;
+    margin-top: $leading / -2;
 }
 
 ol, ul {
@@ -54,7 +54,7 @@ ol, ul {
 
     ol, ul {
         margin-right: $leading * 1.33;
-        margin-bottom: $leading / 8;
+        margin-bottom: $leading / 2;
         margin-left: $leading * 1.33;
     }
 }
@@ -75,7 +75,7 @@ a {
 code {
     font-family: $font-family-mono;
     font-size: $vertical-rhythm * $font-scale-mono;
-    color: $color-text-light;
+    color: $color-text-lighter;
 }
 
 .block-element {
@@ -93,7 +93,7 @@ img, figure {
 blockquote {
     margin-right: $leading;
     margin-left: $leading;
-    color: $color-text-light;
+    color: $color-text-lighter;
 
     p {
         margin-bottom: $leading / 2;
