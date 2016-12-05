@@ -1,64 +1,54 @@
-/*
- *  Font size
- */
-$type-reset-font-size:         17px;
+// Font size
+$type-reset-font-size: 17px;
+
+// Content width
 $type-reset-max-content-width: $type-reset-font-size * 32;
 
-
-/*
- *  Line height and vertical rhythm
- */
+// Line heights
 $type-reset-line-height:         1.5;
 $type-reset-line-height-heading: 1.4;
 $type-reset-line-height-list:    1.6;
 
-$type-reset-leading:             $type-reset-line-height + 0rem;
-$type-reset-vertical-rhythm:     $type-reset-line-height * $type-reset-font-size / $type-reset-line-height-heading;
+// Leading
+$type-reset-leading: $type-reset-line-height + 0rem;
 
+// Vertical rhythm (for headings)
+$type-reset-vertical-rhythm: $type-reset-line-height * $type-reset-font-size / $type-reset-line-height-heading;
 
-/*
- *  Heading font sizes (scaled)
- */
-$type-reset-font-scale-ratio: 1.25;
-$type-reset-font-scale-base:  1;
+// Font and margin scales
+$type-reset-font-scale-ratio:   1.25;
+$type-reset-font-scale-base:    1.00;
+$type-reset-margin-scale-ratio: 1.50;
+$type-reset-margin-scale-base:  1.50;
 
-$type-reset-font-scale-h4:    $type-reset-font-scale-base;
-$type-reset-font-scale-h3:    $type-reset-font-scale-h4 * $type-reset-font-scale-ratio;
-$type-reset-font-scale-h2:    $type-reset-font-scale-h3 * $type-reset-font-scale-ratio;
-$type-reset-font-scale-h1:    $type-reset-font-scale-h2 * $type-reset-font-scale-ratio;
+// Heading font sizes (scaled)
+$type-reset-font-scale-h4: $type-reset-font-scale-base;
+$type-reset-font-scale-h3: $type-reset-font-scale-h4 * $type-reset-font-scale-ratio;
+$type-reset-font-scale-h2: $type-reset-font-scale-h3 * $type-reset-font-scale-ratio;
+$type-reset-font-scale-h1: $type-reset-font-scale-h2 * $type-reset-font-scale-ratio;
 
+// Heading margins (scaled)
+$type-reset-margin-scale-h4: $type-reset-margin-scale-base;
+$type-reset-margin-scale-h3: $type-reset-margin-scale-h4 * $type-reset-margin-scale-ratio;
+$type-reset-margin-scale-h2: $type-reset-margin-scale-h3 * $type-reset-margin-scale-ratio;
+$type-reset-margin-scale-h1: 0;
 
-/*
- *  Heading margins (scaled)
- */
-$type-reset-margin-scale-ratio: 1.5;
-$type-reset-margin-scale-base:  1.5;
-
-$type-reset-margin-scale-h4:    $type-reset-margin-scale-base;
-$type-reset-margin-scale-h3:    $type-reset-margin-scale-h4 * $type-reset-margin-scale-ratio;
-$type-reset-margin-scale-h2:    $type-reset-margin-scale-h3 * $type-reset-margin-scale-ratio;
-$type-reset-margin-scale-h1:    0;
-
-
-/*
- *  Mono font size
- */
+// Mono font size
 $type-reset-font-scale-mono: 0.90;
 
-
-/*
- *  Decoration
- */
+// Font family
 $type-reset-font-family-serif: Georgia, serif;
 $type-reset-font-family-sans:  Tahoma, sans-serif;
 $type-reset-font-family-mono:  "Droid Sans Mono", monospace;
 
-$type-reset-color:             #212121;
-$type-reset-color-lighter:     #424242;
-$type-reset-color-lightest:    #9E9E9E;
-$type-reset-color-background:  #FFFEFC;
-$type-reset-color-actionable:  #FF3D00;
+// Colors
+$type-reset-color:            #212121;
+$type-reset-color-lighter:    #424242;
+$type-reset-color-lightest:   #9E9E9E;
+$type-reset-color-background: #FFFEFC;
+$type-reset-color-actionable: #FF3D00;
 
-
-@import "type-reset/reset", "type-reset/type";
-/* Link mono font in html <head> for speed: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono"> */
+@import "type-reset/reset",
+        "type-reset/type";
+        // Don't import mono font here, for speed's sake. Do it in html <head>:
+        // <link rel="stylesheet" href="https:// fonts.googleapis.com/css?family=Droid+Sans+Mono">
