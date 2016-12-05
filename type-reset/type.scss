@@ -7,17 +7,17 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: $type-reset-font-family-sans;
+    margin-bottom: $type-reset-vertical-rhythm;
     line-height: $type-reset-line-height-heading;
 }
 
-h2, h3, h4 {
-    margin-bottom: $type-reset-vertical-rhythm;
+h1, h2, h4 {
+    font-family: $type-reset-font-family-sans;
 }
 
 h1 {
-    margin-bottom: $type-reset-vertical-rhythm * $type-reset-margin-scale-h1;
-    font-size:     $type-reset-vertical-rhythm * $type-reset-font-scale-h1;
+    margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h1;
+    font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h1;
 }
 
 h2 {
@@ -28,13 +28,14 @@ h2 {
 h3 {
     margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h3;
     font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h3;
-    font-weight: bold;
+    font-style: italic;
 }
 
 h4 {
-    margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h4;
-    font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h4;
-    font-style: italic;
+    margin-top:  $type-reset-vertical-rhythm * $type-reset-margin-scale-h4;
+    font-size:   $type-reset-vertical-rhythm * $type-reset-font-scale-h4;
+    font-weight: bold;
+    color:       $type-reset-color-lighter;
 }
 
 p, ol, ul {

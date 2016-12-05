@@ -1,24 +1,13 @@
 /*
- *  Params
+ *  Font size
  */
-$type-reset-font-family-serif:   Georgia, serif;
-$type-reset-font-family-sans:    Tahoma, sans-serif;
-$type-reset-font-family-mono:    "Droid Sans Mono", monospace;
+$type-reset-font-size:         17px;
+$type-reset-max-content-width: $type-reset-font-size * 32;
 
-$type-reset-font-size:           17px;
-$type-reset-max-content-width:   $type-reset-font-size * 32;
 
-$type-reset-font-scale-h1:       2.0;
-$type-reset-font-scale-h2:       1.5;
-$type-reset-font-scale-h3:       1.1;
-$type-reset-font-scale-h4:       1.0;
-$type-reset-font-scale-mono:     0.9;
-
-$type-reset-margin-scale-h1:     2.0;
-$type-reset-margin-scale-h2:     3.5;
-$type-reset-margin-scale-h3:     1.5;
-$type-reset-margin-scale-h4:     1.0;
-
+/*
+ *  Line height and vertical rhythm
+ */
 $type-reset-line-height:         1.5;
 $type-reset-line-height-heading: 1.4;
 $type-reset-line-height-list:    1.6;
@@ -26,32 +15,50 @@ $type-reset-line-height-list:    1.6;
 $type-reset-leading:             $type-reset-line-height + 0rem;
 $type-reset-vertical-rhythm:     $type-reset-line-height * $type-reset-font-size / $type-reset-line-height-heading;
 
-$type-reset-color:            #212121;
-$type-reset-color-lighter:    #424242;
-$type-reset-color-lightest:   #9E9E9E;
-$type-reset-color-background: #FFFEFC;
-$type-reset-color-actionable: #FF3D00;
+
+/*
+ *  Heading font sizes (scaled)
+ */
+$type-reset-font-scale-ratio: 1.25;
+$type-reset-font-scale-base:  1;
+
+$type-reset-font-scale-h4:    $type-reset-font-scale-base;
+$type-reset-font-scale-h3:    $type-reset-font-scale-h4 * $type-reset-font-scale-ratio;
+$type-reset-font-scale-h2:    $type-reset-font-scale-h3 * $type-reset-font-scale-ratio;
+$type-reset-font-scale-h1:    $type-reset-font-scale-h2 * $type-reset-font-scale-ratio;
 
 
 /*
- *  Imports
+ *  Heading margins (scaled)
  */
-@import "type-reset/reset",
-        "type-reset/type";
+$type-reset-margin-scale-ratio: 1.5;
+$type-reset-margin-scale-base:  1.5;
+
+$type-reset-margin-scale-h4:    $type-reset-margin-scale-base;
+$type-reset-margin-scale-h3:    $type-reset-margin-scale-h4 * $type-reset-margin-scale-ratio;
+$type-reset-margin-scale-h2:    $type-reset-margin-scale-h3 * $type-reset-margin-scale-ratio;
+$type-reset-margin-scale-h1:    0;
 
 
 /*
- *  Import mono font in html <head> for speed:
- *  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono">
+ *  Mono font size
  */
+$type-reset-font-scale-mono: 0.90;
 
 
 /*
- *  Example style
+ *  Decoration
  */
-article {
-    box-sizing: content-box;
-    max-width:  $type-reset-max-content-width;
-    margin:     ($type-reset-leading * 3) auto ($type-reset-leading * 6) auto;
-    padding:    0 $type-reset-leading;
-}
+$type-reset-font-family-serif: Georgia, serif;
+$type-reset-font-family-sans:  Tahoma, sans-serif;
+$type-reset-font-family-mono:  "Droid Sans Mono", monospace;
+
+$type-reset-color:             #212121;
+$type-reset-color-lighter:     #424242;
+$type-reset-color-lightest:    #9E9E9E;
+$type-reset-color-background:  #FFFEFC;
+$type-reset-color-actionable:  #FF3D00;
+
+
+@import "type-reset/reset", "type-reset/type";
+/* Link mono font in html <head> for speed: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono"> */
