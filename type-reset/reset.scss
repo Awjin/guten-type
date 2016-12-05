@@ -21,6 +21,11 @@ time, mark, audio, video, hr {
     font: inherit;
 }
 
+body, input, button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
