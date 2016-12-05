@@ -1,10 +1,43 @@
-@import "type-reset/params",
-        "type-reset/reset",
+$font-family-serif:   Georgia, serif;
+$font-family-sans:    Tahoma, sans-serif;
+$font-family-mono:    "Droid Sans Mono", monospace;
+
+$font-size:           17px;
+
+$font-scale-h1:       2.0;
+$font-scale-h2:       1.5;
+$font-scale-h3:       1.1;
+$font-scale-h4:       1.0;
+$font-scale-mono:     0.9;
+
+$margin-scale-h1:     2.0;
+$margin-scale-h2:     3.5;
+$margin-scale-h3:     1.5;
+$margin-scale-h4:     1.0;
+
+$line-height:         1.5;
+$line-height-heading: 1.4;
+$line-height-list:    1.6;
+
+$leading:             $line-height + 0rem;
+$vertical-rhythm:     $line-height * $font-size / $line-height-heading;
+
+$color-background:    #FFFEFC;
+$color-actionable:    #FF3D00;
+$color-text:          #212121;
+$color-text-lighter:  #424242;
+$color-text-lightest: #9E9E9E;
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+@import "type-reset/reset",
         "type-reset/type";
 
 body {
     box-sizing: content-box;
-    max-width: $font-size * 32;
-    margin: 0 auto;
-    padding: 0 $leading ($vertical-rhythm * $margin-scale-h1 * 2) $leading;
+    max-width:  $font-size * 32;
+    margin:     0 auto;
+    padding:    0 $leading ($vertical-rhythm * $margin-scale-h1 * 2) $leading;
 }
