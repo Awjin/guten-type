@@ -1,60 +1,60 @@
 body {
-    background: $color-background;
-    font-family: $font-family-serif;
-    font-size: $font-size;
-    line-height: $line-height;
-    color: $color-text;
+    background:  $typereset-color-background;
+    font-family: $typereset-font-family-serif;
+    font-size:   $typereset-font-size;
+    line-height: $typereset-line-height;
+    color:       $typereset-color;
 }
 
 h1, h2, h3, h4 {
-    font-family: $font-family-sans;
-    line-height: $line-height-heading;
+    font-family: $typereset-font-family-sans;
+    line-height: $typereset-line-height-heading;
 }
 
 h2, h3, h4 {
-    margin-bottom: $vertical-rhythm;
+    margin-bottom: $typereset-vertical-rhythm;
 }
 
 h1 {
-    margin-bottom: $vertical-rhythm * $margin-scale-h1;
-    font-size: $vertical-rhythm * $font-scale-h1;
+    margin-bottom: $typereset-vertical-rhythm * $typereset-margin-scale-h1;
+    font-size:     $typereset-vertical-rhythm * $typereset-font-scale-h1;
 }
 
 h2 {
-    margin-top: $vertical-rhythm * $margin-scale-h2;
-    font-size: $vertical-rhythm * $font-scale-h2;
+    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h2;
+    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h2;
 }
 
 h3 {
-    margin-top: $vertical-rhythm * $margin-scale-h3;
-    font-size: $vertical-rhythm * $font-scale-h3;
+    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h3;
+    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h3;
     font-weight: bold;
 }
 
 h4 {
-    margin-top: $vertical-rhythm * $margin-scale-h4;
-    font-size: $vertical-rhythm * $font-scale-h4;
+    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h4;
+    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h4;
     font-style: italic;
 }
 
 p, ol, ul {
-    margin-bottom: $leading;
+    margin-bottom: $typereset-leading;
 }
 
 p + ol, p + ul {
-    margin-top: $leading / -2;
+    margin-top: $typereset-leading / -2;
 }
 
 ol, ul {
-    margin-right: $leading * 1.67;
-    margin-left: $leading * 1.67;
-    list-style: outside;
-    line-height: $line-height-list;
+    margin-right: $typereset-leading * 1.67;
+    margin-left:  $typereset-leading * 1.67;
+    list-style:   outside;
+    line-height:  $typereset-line-height-list;
 
     ol, ul {
-        margin-right: $leading * 1.33;
-        margin-bottom: $leading / 2;
-        margin-left: $leading * 1.33;
+        margin-right:  $typereset-leading * 1.33;
+        margin-bottom: $typereset-leading / 2;
+        margin-left:   $typereset-leading * 1.33;
     }
 }
 
@@ -64,7 +64,7 @@ li {
 
 a {
     text-decoration: none;
-    color: $color-actionable;
+    color:           $typereset-color-actionable;
 
     &:hover, &:focus {
         text-decoration: underline;
@@ -72,42 +72,45 @@ a {
 }
 
 code {
-    font-family: $font-family-mono;
-    font-size: $vertical-rhythm * $font-scale-mono;
-    color: $color-text-lighter;
+    font-family: $typereset-font-family-mono;
+    font-size:   $typereset-vertical-rhythm * $typereset-font-scale-mono;
+    color:       $typereset-color-lighter;
 }
 
-.block-element {
-    display: block;
-    max-width: 100%;
-    margin-top: $leading;
-    margin-bottom: $leading * 1.1;
+%typereset-block-element {
+    display:       block;
+    max-width:     100%;
+    margin-top:    $typereset-leading;
+    margin-bottom: $typereset-leading * 1.1;
 }
 
 blockquote, pre,
 img, figure {
-    @extend .block-element;
+    @extend %typereset-block-element;
 }
 
 blockquote {
-    margin-right: $leading;
-    margin-left: $leading;
-    color: $color-text-lighter;
+    margin-right: $typereset-leading;
+    margin-left:  $typereset-leading;
+    color:        $typereset-color-lighter;
 
     p {
-        margin-bottom: $leading / 2;
-        font-style: italic;
+        margin-bottom: $typereset-leading / 2;
+        font-style:    italic;
     }
 }
 
 pre {
-    overflow-x: auto;
-    margin-right: $leading;
-    margin-left: $leading;
+    overflow-x:   auto;
+    margin-right: $typereset-leading;
+    margin-left:  $typereset-leading;
 }
 
 hr {
-    width: 100%;
-    margin-top: $vertical-rhythm * $margin-scale-h2 * 2;
-    border: none;
+    width:         100%;
+    height:        1px;
+    margin-top:    $typereset-vertical-rhythm * $typereset-margin-scale-h2;
+    margin-bottom: $typereset-vertical-rhythm * $typereset-margin-scale-h2;
+    border:        none;
+    background:    $typereset-color-lightest;
 }
