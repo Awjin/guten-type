@@ -1,36 +1,36 @@
 /*
  *  Params
  */
-$typereset-font-family-serif:   Georgia, serif;
-$typereset-font-family-sans:    Tahoma, sans-serif;
-$typereset-font-family-mono:    "Droid Sans Mono", monospace;
+$type-reset-font-family-serif:   Georgia, serif;
+$type-reset-font-family-sans:    Tahoma, sans-serif;
+$type-reset-font-family-mono:    "Droid Sans Mono", monospace;
 
-$typereset-font-size:           17px;
-$typereset-max-content-width:   $typereset-font-size * 32;
+$type-reset-font-size:           17px;
+$type-reset-max-content-width:   $type-reset-font-size * 32;
 
-$typereset-font-scale-h1:       2.0;
-$typereset-font-scale-h2:       1.5;
-$typereset-font-scale-h3:       1.1;
-$typereset-font-scale-h4:       1.0;
-$typereset-font-scale-mono:     0.9;
+$type-reset-font-scale-h1:       2.0;
+$type-reset-font-scale-h2:       1.5;
+$type-reset-font-scale-h3:       1.1;
+$type-reset-font-scale-h4:       1.0;
+$type-reset-font-scale-mono:     0.9;
 
-$typereset-margin-scale-h1:     2.0;
-$typereset-margin-scale-h2:     3.5;
-$typereset-margin-scale-h3:     1.5;
-$typereset-margin-scale-h4:     1.0;
+$type-reset-margin-scale-h1:     2.0;
+$type-reset-margin-scale-h2:     3.5;
+$type-reset-margin-scale-h3:     1.5;
+$type-reset-margin-scale-h4:     1.0;
 
-$typereset-line-height:         1.5;
-$typereset-line-height-heading: 1.4;
-$typereset-line-height-list:    1.6;
+$type-reset-line-height:         1.5;
+$type-reset-line-height-heading: 1.4;
+$type-reset-line-height-list:    1.6;
 
-$typereset-leading:             $typereset-line-height + 0rem;
-$typereset-vertical-rhythm:     $typereset-line-height * $typereset-font-size / $typereset-line-height-heading;
+$type-reset-leading:             $type-reset-line-height + 0rem;
+$type-reset-vertical-rhythm:     $type-reset-line-height * $type-reset-font-size / $type-reset-line-height-heading;
 
-$typereset-color:            #212121;
-$typereset-color-lighter:    #424242;
-$typereset-color-lightest:   #9E9E9E;
-$typereset-color-background: #FFFEFC;
-$typereset-color-actionable: #FF3D00;
+$type-reset-color:            #212121;
+$type-reset-color-lighter:    #424242;
+$type-reset-color-lightest:   #9E9E9E;
+$type-reset-color-background: #FFFEFC;
+$type-reset-color-actionable: #FF3D00;
 
 
 /*
@@ -51,7 +51,7 @@ $typereset-color-actionable: #FF3D00;
  */
 article {
     box-sizing: content-box;
-    max-width:  $typereset-max-content-width;
-    margin:     ($typereset-leading * 3) auto ($typereset-leading * 6) auto;
-    padding:    0 $typereset-leading;
+    max-width:  $type-reset-max-content-width;
+    margin:     ($type-reset-leading * 3) auto ($type-reset-leading * 6) auto;
+    padding:    0 $type-reset-leading;
 }

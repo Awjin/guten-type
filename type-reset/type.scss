@@ -1,60 +1,60 @@
 body {
-    background:  $typereset-color-background;
-    font-family: $typereset-font-family-serif;
-    font-size:   $typereset-font-size;
-    line-height: $typereset-line-height;
-    color:       $typereset-color;
+    background:  $type-reset-color-background;
+    font-family: $type-reset-font-family-serif;
+    font-size:   $type-reset-font-size;
+    line-height: $type-reset-line-height;
+    color:       $type-reset-color;
 }
 
 h1, h2, h3, h4 {
-    font-family: $typereset-font-family-sans;
-    line-height: $typereset-line-height-heading;
+    font-family: $type-reset-font-family-sans;
+    line-height: $type-reset-line-height-heading;
 }
 
 h2, h3, h4 {
-    margin-bottom: $typereset-vertical-rhythm;
+    margin-bottom: $type-reset-vertical-rhythm;
 }
 
 h1 {
-    margin-bottom: $typereset-vertical-rhythm * $typereset-margin-scale-h1;
-    font-size:     $typereset-vertical-rhythm * $typereset-font-scale-h1;
+    margin-bottom: $type-reset-vertical-rhythm * $type-reset-margin-scale-h1;
+    font-size:     $type-reset-vertical-rhythm * $type-reset-font-scale-h1;
 }
 
 h2 {
-    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h2;
-    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h2;
+    margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h2;
+    font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h2;
 }
 
 h3 {
-    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h3;
-    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h3;
+    margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h3;
+    font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h3;
     font-weight: bold;
 }
 
 h4 {
-    margin-top: $typereset-vertical-rhythm * $typereset-margin-scale-h4;
-    font-size:  $typereset-vertical-rhythm * $typereset-font-scale-h4;
+    margin-top: $type-reset-vertical-rhythm * $type-reset-margin-scale-h4;
+    font-size:  $type-reset-vertical-rhythm * $type-reset-font-scale-h4;
     font-style: italic;
 }
 
 p, ol, ul {
-    margin-bottom: $typereset-leading;
+    margin-bottom: $type-reset-leading;
 }
 
 p + ol, p + ul {
-    margin-top: $typereset-leading / -2;
+    margin-top: $type-reset-leading / -2;
 }
 
 ol, ul {
-    margin-right: $typereset-leading * 1.67;
-    margin-left:  $typereset-leading * 1.67;
+    margin-right: $type-reset-leading * 1.67;
+    margin-left:  $type-reset-leading * 1.67;
     list-style:   outside;
-    line-height:  $typereset-line-height-list;
+    line-height:  $type-reset-line-height-list;
 
     ol, ul {
-        margin-right:  $typereset-leading * 1.33;
-        margin-bottom: $typereset-leading / 2;
-        margin-left:   $typereset-leading * 1.33;
+        margin-right:  $type-reset-leading * 1.33;
+        margin-bottom: $type-reset-leading / 2;
+        margin-left:   $type-reset-leading * 1.33;
     }
 }
 
@@ -64,7 +64,7 @@ li {
 
 a {
     text-decoration: none;
-    color:           $typereset-color-actionable;
+    color:           $type-reset-color-actionable;
 
     &:hover, &:focus {
         text-decoration: underline;
@@ -72,45 +72,45 @@ a {
 }
 
 code {
-    font-family: $typereset-font-family-mono;
-    font-size:   $typereset-vertical-rhythm * $typereset-font-scale-mono;
-    color:       $typereset-color-lighter;
+    font-family: $type-reset-font-family-mono;
+    font-size:   $type-reset-vertical-rhythm * $type-reset-font-scale-mono;
+    color:       $type-reset-color-lighter;
 }
 
-%typereset-block-element {
+%type-reset-block-element {
     display:       block;
     max-width:     100%;
-    margin-top:    $typereset-leading;
-    margin-bottom: $typereset-leading * 1.1;
+    margin-top:    $type-reset-leading;
+    margin-bottom: $type-reset-leading * 1.1;
 }
 
 blockquote, pre,
 img, figure {
-    @extend %typereset-block-element;
+    @extend %type-reset-block-element;
 }
 
 blockquote {
-    margin-right: $typereset-leading;
-    margin-left:  $typereset-leading;
-    color:        $typereset-color-lighter;
+    margin-right: $type-reset-leading;
+    margin-left:  $type-reset-leading;
+    color:        $type-reset-color-lighter;
 
     p {
-        margin-bottom: $typereset-leading / 2;
+        margin-bottom: $type-reset-leading / 2;
         font-style:    italic;
     }
 }
 
 pre {
     overflow-x:   auto;
-    margin-right: $typereset-leading;
-    margin-left:  $typereset-leading;
+    margin-right: $type-reset-leading;
+    margin-left:  $type-reset-leading;
 }
 
 hr {
     width:         100%;
     height:        1px;
-    margin-top:    $typereset-vertical-rhythm * $typereset-margin-scale-h2;
-    margin-bottom: $typereset-vertical-rhythm * $typereset-margin-scale-h2;
+    margin-top:    $type-reset-vertical-rhythm * $type-reset-margin-scale-h2;
+    margin-bottom: $type-reset-vertical-rhythm * $type-reset-margin-scale-h2;
     border:        none;
-    background:    $typereset-color-lightest;
+    background:    $type-reset-color-lightest;
 }
