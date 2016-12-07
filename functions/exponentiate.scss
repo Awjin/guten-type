@@ -1,0 +1,11 @@
+@function exponentiate($base, $exponent) {
+    $power: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $power: $power * $base;
+        }
+    }
+
+    @return $power;
+}

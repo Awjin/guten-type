@@ -1,0 +1,44 @@
+p,
+ol,
+ul {
+    margin-bottom: $tr-leading;
+}
+
+p + ol,
+p + ul {
+    margin-top: $tr-leading / -2;
+}
+
+ol,
+ul {
+    margin-left: $tr-leading * 1.67;
+    list-style: outside;
+    line-height: $tr-line-height-list;
+
+    ol,
+    ul {
+        margin-bottom: $tr-leading / 2;
+    }
+}
+
+li {
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $tr-color-actionable;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+        color: $tr-color-text;
+    }
+}
+
+code {
+    font-family: $tr-font-stack-monospace;
+    font-size: $tr-font-size-small;
+    color: $tr-color-text-lighter;
+}
