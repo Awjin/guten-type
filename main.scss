@@ -1,17 +1,12 @@
 @import "src/reset";
 
 .breathable {
-    @import "src/parameters",
-            "src/functions";
+    // TODO: make parameters a mixin with default values
+    @import "src/parameters";
 
-    max-width:   $max-width-content;
-    background:  $color-background;
-    font-family: $font-stack-serif;
-    font-size:   $font-size;
-    line-height: $line-height;
-    color:       $color-text;
-
-    @import "src/style/headings",
+    @import "src/functions",
+            "src/style/base",
+            "src/style/headings",
             "src/style/inlines",
             "src/style/blocks";
 }
