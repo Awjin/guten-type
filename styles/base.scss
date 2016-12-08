@@ -1,12 +1,6 @@
-@import "reset",
-        "heading",
-        "inline-element",
-        "block-element";
-
-body {
-    background:  $tr-color-background;
-    font-family: $tr-font-stack-serif;
-    font-size:   $tr-font-size;
-    line-height: $tr-line-height;
-    color:       $tr-color-text;
-}
+max-width:   $max-width-content;
+background:  $color-background;
+font-family: $font-stack-serif;
+font-size:   $font-size;
+line-height: $line-height;
+color:       $color-text;

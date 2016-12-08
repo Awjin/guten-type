@@ -1,0 +1,44 @@
+p,
+ol,
+ul {
+    margin-bottom: $leading;
+}
+
+p + ol,
+p + ul {
+    margin-top: $leading / -2;
+}
+
+ol,
+ul {
+    margin-left: $leading * 1.67;
+    list-style: outside;
+    line-height: $line-height-list;
+
+    ol,
+    ul {
+        margin-bottom: $leading / 2;
+    }
+}
+
+li {
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $color-actionable;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+        color: $color-text;
+    }
+}
+
+code {
+    font-family: $font-stack-monospace;
+    font-size: $font-size-small;
+    color: $color-text-lighter;
+}

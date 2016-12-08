@@ -1,0 +1,35 @@
+/* Size */
+
+$font-size: 17px;
+$font-size-small: $font-size * 0.9;
+
+$max-width-content: $font-size * 32;
+
+$font-scale-base: 1.00;
+$font-scale-ratio: 1.25;
+
+
+/* Whitespace */
+
+$line-height: 1.5;
+$line-height-heading: 1.4;
+$line-height-list: 1.6;
+
+$leading: $line-height + 0rem;
+$vertical-rhythm: $line-height / $line-height-heading * $font-size;
+
+$scale-margin-base: 1.5;
+$scale-margin-ratio: 1.5;
+
+
+/* Make it pretty */
+
+$font-stack-serif: Georgia, serif;
+$font-stack-sans-serif: Tahoma, sans-serif;
+$font-stack-monospace: Andale Mono, "Lucida Console", monospace;
+
+$color-background: #FFFEFC;
+$color-text: #212121;
+$color-text-lighter: #424242;
+$color-text-lightest: #9E9E9E;
+$color-actionable: #FF3D00;
