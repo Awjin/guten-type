@@ -1,26 +1,26 @@
-%blocks {
-    display: block;
-    max-width: 100%;
-    margin-top: $leading;
-    margin-bottom: $leading * 1.1;
-}
-
-blockquote,
-pre,
-img,
-figure {
-    @extend %blocks;
-}
-
 blockquote {
+    display: block;
     margin-left: $leading;
     font-style: italic;
     color: $color-text-lighter;
 }
 
 pre {
+    display: block;
     overflow-x: auto;
-    margin-left: $leading;
+    margin-top: $leading * 1.33;
+    margin-bottom: $leading * 1.33;
+    padding: ($leading * 0.5) $leading ($leading * 0.67) $leading;
+    border: 1px solid $color-text-lightest;
+    border-left: ($font-size / 4) solid $color-text-lightest;
+}
+
+img,
+figure {
+    display: block;
+    max-width: 100%;
+    margin-top: $leading * 1.33;
+    margin-bottom: $leading * 1.33;
 }
 
 hr {
