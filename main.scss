@@ -1,0 +1,17 @@
+@import "src/reset";
+
+.breathable {
+    @import "src/parameters",
+            "src/functions";
+
+    max-width:   $max-width-content;
+    background:  $color-background;
+    font-family: $font-stack-serif;
+    font-size:   $font-size;
+    line-height: $line-height;
+    color:       $color-text;
+
+    @import "src/style/headings",
+            "src/style/inlines",
+            "src/style/blocks";
+}
