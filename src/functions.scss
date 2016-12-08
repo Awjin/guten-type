@@ -1,8 +1,8 @@
 @function scale-font($exponent) {
     $value:
         $font-size
-            * $font-scale-base
-            * exponentiate($font-scale-ratio, $exponent);
+            * $scale-font-base
+            * exponentiate($scale-font-ratio, $exponent);
 
     @return $value;
 }
