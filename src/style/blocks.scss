@@ -13,7 +13,8 @@ figcaption,
 blockquote,
 pre,
 table {
-    margin-bottom: $leading;
+    margin-top: $leading * 1.25;
+    margin-bottom: $leading * 1.25;
 }
 
 img {
@@ -39,7 +40,7 @@ blockquote {
 
 pre {
     overflow-x: auto;
-    padding: ($leading / 2) ($leading * 0.75) ($leading * 0.67) ($leading * 0.75);
+    padding: ($leading * 0.66) $leading ($leading * 0.75) $leading;
     border: 1px solid $color-line;
 }
 
@@ -58,6 +59,14 @@ th {
 
 th,
 td {
-    padding: ($leading / 2) ($leading * 0.75);
+    padding: ($leading * 0.66) ($leading / 2) ($leading * 0.75) ($leading / 2);
     vertical-align: top;
+
+    &:first-child {
+        padding-left: $leading;
+    }
+
+    &:first-child {
+        padding-right: $leading;
+    }
 }
