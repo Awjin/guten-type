@@ -1,19 +1,19 @@
-hr,
+hr {
+    width: 100%;
+    height: 1px;
+    margin-top: scale-margin(2);
+    margin-bottom: scale-margin(2);
+    border: none;
+    background: $color-line;
+}
+
 img,
 figure,
 figcaption,
 blockquote,
 pre,
 table {
-    margin-top: $leading * 1.5;
-    margin-bottom: $leading * 1.5;
-}
-
-hr {
-    width: 100%;
-    height: 1px;
-    border: none;
-    background: $color-text-light;
+    margin-bottom: $leading;
 }
 
 img {
@@ -35,17 +35,21 @@ blockquote {
 
 blockquote {
     margin-left: $leading;
-    padding-left: $leading * 0.75;
 }
 
 pre {
     overflow-x: auto;
     padding: ($leading / 2) ($leading * 0.75) ($leading * 0.67) ($leading * 0.75);
+    border: 1px solid $color-line;
 }
 
 table {
     width: 100%;
     text-align: left;
+}
+
+tr {
+    border: 1px solid $color-line;
 }
 
 th {
@@ -56,16 +60,4 @@ th,
 td {
     padding: ($leading / 2) ($leading * 0.75);
     vertical-align: top;
-}
-
-pre,
-table,
-tr {
-    border: 1px solid $color-text-light;
-}
-
-blockquote,
-pre,
-table {
-    border-left: ($font-size / 4) solid $color-text-light;
 }
