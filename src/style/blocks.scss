@@ -21,8 +21,14 @@ img {
     max-width: 100%;
 }
 
-figcaption {
+figcaption,
+pre,
+table {
     font-size: $font-size-small;
+}
+
+figcaption,
+blockquote {
     font-style: italic;
     color: $color-text-light;
 }
@@ -30,7 +36,6 @@ figcaption {
 blockquote {
     margin-left: $leading;
     padding-left: $leading * 0.75;
-    font-style: italic;
 }
 
 pre {
@@ -41,7 +46,6 @@ pre {
 table {
     width: 100%;
     text-align: left;
-    font-size: $font-size-small;
 }
 
 th {
