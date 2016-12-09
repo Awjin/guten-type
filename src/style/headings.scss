@@ -1,13 +1,8 @@
 h1,
 h2,
-h4 {
-    font-family: $font-stack-sans-serif;
-}
-
-h1,
-h2,
 h3,
 h4 {
+    font-family: $font-stack-sans-serif;
     line-height: $line-height-heading;
 }
 
@@ -31,14 +26,12 @@ h2 {
 h3 {
     margin-top: scale-margin(1);
     font-size: scale-font(1);
-    font-style: italic;
 }
 
 h4 {
     margin-top: scale-margin(0);
     font-size: scale-font(0);
-    font-weight: bold;
-    color: $color-text-lighter;
+    font-style: italic;
 }
 
 h1 + h2,

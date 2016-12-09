@@ -1,33 +1,67 @@
-blockquote {
-    display: block;
-    margin-left: $leading;
-    font-style: italic;
-    color: $color-text-lighter;
-}
-
-pre {
-    display: block;
-    overflow-x: auto;
-    margin-top: $leading * 1.33;
-    margin-bottom: $leading * 1.33;
-    padding: ($leading * 0.5) $leading ($leading * 0.67) $leading;
-    border: 1px solid $color-text-lightest;
-    border-left: ($font-size / 4) solid $color-text-lightest;
-}
-
+hr,
 img,
-figure {
-    display: block;
-    max-width: 100%;
-    margin-top: $leading * 1.33;
-    margin-bottom: $leading * 1.33;
+figure,
+figcaption,
+blockquote,
+pre,
+table {
+    margin-top: $leading * 1.5;
+    margin-bottom: $leading * 1.5;
 }
 
 hr {
     width: 100%;
     height: 1px;
-    margin-top: scale-margin(2);
-    margin-bottom: scale-margin(2);
     border: none;
-    background: $color-text-lightest;
+    background: $color-text-light;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+figcaption {
+    font-size: $font-size-small;
+    font-style: italic;
+    color: $color-text-light;
+}
+
+blockquote {
+    margin-left: $leading;
+    padding-left: $leading * 0.75;
+    font-style: italic;
+}
+
+pre {
+    overflow-x: auto;
+    padding: ($leading / 2) ($leading * 0.75) ($leading * 0.67) ($leading * 0.75);
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    font-size: $font-size-small;
+}
+
+th {
+    font-weight: bold;
+}
+
+th,
+td {
+    padding: ($leading / 2) ($leading * 0.75);
+    vertical-align: top;
+}
+
+pre,
+table,
+tr {
+    border: 1px solid $color-text-light;
+}
+
+blockquote,
+pre,
+table {
+    border-left: ($font-size / 4) solid $color-text-light;
 }

@@ -4,11 +4,6 @@ ul {
     margin-bottom: $leading;
 }
 
-p + ol,
-p + ul {
-    margin-top: $leading / -2;
-}
-
 ol,
 ul {
     margin-left: $leading * 1.67;
@@ -19,6 +14,11 @@ ul {
     ul {
         margin-bottom: $leading / 2;
     }
+}
+
+p + ol,
+p + ul {
+    margin-top: $leading / -2;
 }
 
 li {
@@ -39,6 +39,5 @@ a {
 
 code {
     font-family: $font-stack-monospace;
-    font-size: $font-size - 1;
-    color: $color-text-lighter;
+    font-size: $font-size-small;
 }

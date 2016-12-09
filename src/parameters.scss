@@ -1,6 +1,7 @@
 /* Size */
 
 $font-size: 18px;
+$font-size-small: $font-size * 0.9;
 $max-width: $font-size * 32;
 
 
@@ -11,7 +12,7 @@ $line-height-heading: 1.4;
 $line-height-list: 1.6;
 
 $leading: $line-height + 0rem;
-$vertical-rhythm: $line-height / $line-height-heading * $font-size;
+$vertical-rhythm: ($line-height / $line-height-heading) * $font-size;
 
 
 /* Scale */
@@ -30,6 +31,5 @@ $font-stack-monospace: Andale Mono, "Lucida Console", monospace;
 
 $color-background: #FFFEFC;
 $color-text: #212121;
-$color-text-lighter: #424242;
-$color-text-lightest: #9E9E9E;
+$color-text-light: #757575;
 $color-actionable: #FF3D00;
