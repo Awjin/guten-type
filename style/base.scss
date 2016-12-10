@@ -6,3 +6,13 @@
     line-height: $line-height;
     color:       $color-text;
 }
+
+* {
+    box-sizing: border-box;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}

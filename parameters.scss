@@ -12,14 +12,14 @@ $line-height-heading: 1.4;
 $line-height-list: 1.6;
 
 $leading: $line-height + 0rem;
-$vertical-rhythm: ($line-height / $line-height-heading) * $font-size;
+$leading-heading: ($line-height / $line-height-heading) * $font-size;
 
 
 /* Scale */
 
 $scale-font-base: 1.00;
 $scale-font-ratio: 1.25;
-$scale-margin-base: 2.0;
+$scale-margin-base: 2.00;
 $scale-margin-ratio: 1.33;
 
 

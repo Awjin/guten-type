@@ -9,17 +9,21 @@ hr {
 
 img,
 figure,
-figcaption,
 blockquote,
 pre,
-table {
-    margin-top: $leading * 1.25;
-    margin-bottom: $leading * 1.25;
+table,
+iframe {
+    margin-top: $leading * 1.5;
+    margin-bottom: $leading * 1.5;
 }
 
 img {
     display: block;
     max-width: 100%;
+}
+
+img + figcaption {
+    margin-top: $leading / -2;
 }
 
 figcaption,
@@ -29,7 +33,8 @@ table {
 }
 
 figcaption,
-blockquote {
+blockquote,
+caption {
     font-style: italic;
     color: $color-text-light;
 }
@@ -46,15 +51,25 @@ pre {
 
 table {
     width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
     text-align: left;
+}
+
+caption {
+    margin-top: $leading;
+    caption-side: bottom;
+    text-align: left;
+}
+
+thead,
+tfoot,
+th {
+    font-weight: bold;
 }
 
 tr {
     border: 1px solid $color-line;
-}
-
-th {
-    font-weight: bold;
 }
 
 th,
@@ -66,7 +81,7 @@ td {
         padding-left: $leading;
     }
 
-    &:first-child {
+    &:last-child {
         padding-right: $leading;
     }
 }

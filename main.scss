@@ -1,12 +1,8 @@
-@import "src/reset";
-
 .breathable {
-    // TODO: make parameters a mixin with default values
-    @import "src/parameters";
-
-    @import "src/functions",
-            "src/style/base",
-            "src/style/headings",
-            "src/style/inlines",
-            "src/style/blocks";
+    @import "parameters",
+            "functions",
+            "style/base",
+            "style/headings",
+            "style/inlines",
+            "style/blocks";
 }
