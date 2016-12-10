@@ -1,8 +1,6 @@
-.breathable {
-    @import "parameters",
-            "functions",
-            "style/base",
-            "style/headings",
-            "style/inlines",
-            "style/blocks";
-}
+@import "parameters",
+    "functions",
+    "style/base",
+    "style/headings",
+    "style/inlines",
+    "style/blocks";
