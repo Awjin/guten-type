@@ -54,6 +54,14 @@ ul {
     }
 }
 
+ol {
+    list-style-type: decimal;
+}
+
+ul {
+    list-style-type: disc;
+}
+
 p + ol,
 p + ul {
     margin-top: $leading / -2;
