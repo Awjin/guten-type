@@ -9,7 +9,7 @@
 
 @function scale-margin($exponent) {
     $value:
-        $leading-heading
+        $leading
             * $scale-margin-base
             * exponentiate($scale-margin-ratio, $exponent);
 

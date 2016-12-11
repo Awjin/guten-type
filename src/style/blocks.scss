@@ -1,12 +1,3 @@
-hr {
-    width: 100%;
-    height: 1px;
-    margin-top: scale-margin(2);
-    margin-bottom: scale-margin(2);
-    border: none;
-    background: $color-line;
-}
-
 img,
 figure,
 blockquote,
@@ -84,4 +75,13 @@ td {
     &:last-child {
         padding-right: $leading;
     }
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    margin-top: scale-margin(2);
+    margin-bottom: scale-margin(2);
+    border: none;
+    background: $color-line;
 }

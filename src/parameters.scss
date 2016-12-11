@@ -1,26 +1,20 @@
 /* Size */
 
-$font-size: 18px;
+$font-size: 20px;
 $font-size-small: $font-size * 0.9;
 $max-width: $font-size * 32;
+
+$scale-font-base: 1.00;
+$scale-font-ratio: 1.25;
 
 
 /* Whitespace */
 
-$line-height: 1.5;
-$line-height-heading: 1.4;
-$line-height-list: 1.6;
+$line-height: 1.4;
+$leading: $font-size * $line-height;
 
-$leading: $line-height + 0rem;
-$leading-heading: ($line-height / $line-height-heading) * $font-size;
-
-
-/* Scale */
-
-$scale-font-base: 1.00;
-$scale-font-ratio: 1.25;
 $scale-margin-base: 2.00;
-$scale-margin-ratio: 1.33;
+$scale-margin-ratio: 1.5;
 
 
 /* Make it pretty */
@@ -32,5 +26,5 @@ $font-stack-monospace: Andale Mono, "Lucida Console", monospace;
 $color-background: #FFFEFC;
 $color-text: #212121;
 $color-text-light: #757575;
-$color-actionable: #FF3D00;
+$color-actionable: #0091EA;
 $color-line: #9E9E9E;
