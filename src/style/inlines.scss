@@ -5,7 +5,7 @@ h4,
 p,
 ol,
 ul {
-    margin-bottom: $leading;
+    margin-bottom: $whitespace;
 }
 
 h1,
@@ -39,18 +39,18 @@ h4 {
 h1 + h2,
 h2 + h3,
 h3 + h4 {
-    margin-top: $leading * 2;
+    margin-top: $whitespace * 2;
 }
 
 ol,
 ul {
-    margin-left: $leading * 2;
+    margin-left: $whitespace * 2;
     list-style: outside;
 
     ol,
     ul {
-        margin-left: $leading * 1.5;
-        margin-bottom: $leading / 2;
+        margin-left: $whitespace * 1.5;
+        margin-bottom: $whitespace / 2;
     }
 }
 
@@ -64,7 +64,7 @@ ul {
 
 p + ol,
 p + ul {
-    margin-top: $leading / -2;
+    margin-top: $whitespace / -2;
 }
 
 li {

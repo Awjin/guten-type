@@ -4,8 +4,8 @@ blockquote,
 pre,
 table,
 iframe {
-    margin-top: $leading * 1.5;
-    margin-bottom: $leading * 1.5;
+    margin-top: $whitespace * 1.5;
+    margin-bottom: $whitespace * 1.5;
 }
 
 img {
@@ -14,7 +14,7 @@ img {
 }
 
 img + figcaption {
-    margin-top: $leading / -2;
+    margin-top: $whitespace / -2;
 }
 
 figcaption,
@@ -31,12 +31,12 @@ caption {
 }
 
 blockquote {
-    margin-left: $leading;
+    margin-left: $whitespace;
 }
 
 pre {
     overflow-x: auto;
-    padding: ($leading * 0.66) $leading ($leading * 0.75) $leading;
+    padding: ($whitespace * 0.66) $whitespace ($whitespace * 0.75) $whitespace;
     border: 1px solid $color-line;
 }
 
@@ -48,7 +48,7 @@ table {
 }
 
 caption {
-    margin-top: $leading;
+    margin-top: $whitespace;
     caption-side: bottom;
     text-align: left;
 }
@@ -65,15 +65,15 @@ tr {
 
 th,
 td {
-    padding: ($leading * 0.66) ($leading / 2) ($leading * 0.75) ($leading / 2);
+    padding: ($whitespace * 0.66) ($whitespace / 2) ($whitespace * 0.75) ($whitespace / 2);
     vertical-align: top;
 
     &:first-child {
-        padding-left: $leading;
+        padding-left: $whitespace;
     }
 
     &:last-child {
-        padding-right: $leading;
+        padding-right: $whitespace;
     }
 }
 
