@@ -1,0 +1,23 @@
+$font-size: 18px;
+$font-size-small: $font-size * 0.9;
+$line-height: 1.45;
+$whitespace: $font-size * $line-height;
+
+$scale-font-base: 1.00;
+$scale-font-ratio: 1.25;
+$scale-margin-base: 1.5;
+$scale-margin-ratio: 1.5;
+
+$font-stack-serif: Georgia, serif;
+$font-stack-sans-serif: Verdana, sans-serif;
+$font-stack-monospace: Andale Mono, "Lucida Console", monospace;
+
+$color-background: #FFFFFF;
+$color-text: #111111;
+$color-text-light: #222222;
+$color-text-dark: #000000;
+$color-action: #0099FF;
+
+@import "scale-functions",
+        "normalize",
+        "style";
