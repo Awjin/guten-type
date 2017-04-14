@@ -1,1 +1,6 @@
-_test
+.sass-cache
+.sass-cache/*
+*.map
+
+style.css
+style.css.map

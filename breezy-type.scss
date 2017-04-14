@@ -1,9 +1,9 @@
 $font-size: 18px;
 $font-size-small: $font-size * 0.9;
-$line-height: 1.45;
+$line-height: 1.4;
 $whitespace: $font-size * $line-height;
 
-$scale-font-base: 1.00;
+$scale-font-base: 1.25;
 $scale-font-ratio: 1.25;
 $scale-margin-base: 1.5;
 $scale-margin-ratio: 1.5;
@@ -18,6 +18,6 @@ $color-text-light: #222222;
 $color-text-dark: #000000;
 $color-action: #0099FF;
 
-@import "scale-functions",
-        "normalize",
-        "style";
+@import "lib/scale-functions",
+        "lib/normalize",
+        "lib/style";
