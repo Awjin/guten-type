@@ -127,7 +127,7 @@ figcaption,
 blockquote,
 caption {
     font-style: italic;
-    color: $color-text-dark;
+    color: $color-text-light;
 }
 
 blockquote {
@@ -137,7 +137,7 @@ blockquote {
 pre {
     overflow-x: auto;
     padding: ($whitespace * 0.66) $whitespace ($whitespace * 0.75) $whitespace;
-    border: 1px solid $color-text-dark;
+    border: 1px solid $color-text-light;
 }
 
 table {
@@ -161,7 +161,7 @@ th {
 }
 
 tr {
-    border: 1px solid $color-text-dark;
+    border: 1px solid $color-text-light;
 }
 
 th,
@@ -184,5 +184,5 @@ hr {
     margin-top: scale-margin(2);
     margin-bottom: scale-margin(2);
     border: none;
-    background: $color-text-dark;
+    background: $color-text-light;
 }
