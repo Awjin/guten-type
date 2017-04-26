@@ -8,14 +8,14 @@ $scale-font-ratio: 1.25;
 $scale-margin-base: 1.5;
 $scale-margin-ratio: 1.5;
 
-$font-stack-serif: Georgia, serif;
-$font-stack-sans-serif: Verdana, sans-serif;
-$font-stack-monospace: Andale Mono, "Lucida Console", monospace;
+$font-stack-1: Georgia, serif;
+$font-stack-2: Verdana, sans-serif;
+$font-stack-3: Andale Mono, "Lucida Console", monospace;
 
-$color-background: #FFFFFF;
-$color-text: #111111;
-$color-text-light: #222222;
-$color-action: #0099FF;
+$color-background: #fff;
+$color-text: #111;
+$color-text-light: #222;
+$color-action: #0099ff;
 
 @import "lib/scale-functions",
         "lib/normalize",
