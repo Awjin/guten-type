@@ -1,15 +1,3 @@
-@function exponentiate($base, $exponent) {
-    $power: 1;
-
-    @if $exponent > 0 {
-        @for $i from 1 through $exponent {
-            $power: $power * $base;
-        }
-    }
-
-    @return $power;
-}
-
 @function scale-font($exponent) {
     $value: $font-size * $scale-font-base
                        * exponentiate($scale-font-ratio, $exponent);
@@ -22,4 +10,16 @@
                         * exponentiate($scale-margin-ratio, $exponent);
 
     @return $value;
+}
+
+@function exponentiate($base, $exponent) {
+    $power: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+            $power: $power * $base;
+        }
+    }
+
+    @return $power;
 }
