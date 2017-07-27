@@ -1,9 +1,11 @@
 html,
-body { background: $color-background;
-       font-family: $font-stack-1;
-       font-size: $font-size;
-       line-height: $line-height;
-       color: $color-text; }
+body {
+    background: $color-background;
+    font-family: $font-stack-1;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $color-text;
+}
 
 h1,
 h2,
@@ -11,115 +13,168 @@ h3,
 h4,
 p,
 ol,
-ul { margin-bottom: $whitespace; }
+ul {
+    margin-bottom: $whitespace;
+}
 
 h1,
 h2,
 h3,
-h4 { font-family: $font-stack-2;
-     font-weight: normal;
-     color: $color-text-light; }
+h4 {
+    font-family: $font-stack-2;
+    font-weight: normal;
+    color: $color-text-light
+}
 
-h1 { margin-top: scale-margin(3);
-     font-size: scale-font(3); }
+h1 {
+    margin-top: scale-margin(3);
+    font-size: scale-font(3);
+}
 
-h2 { margin-top: scale-margin(2);
-     font-size: scale-font(2); }
+h2 {
+    margin-top: scale-margin(2);
+    font-size: scale-font(2);
+}
 
-h3 { margin-top: scale-margin(1);
-     font-size: scale-font(1); }
+h3 {
+    margin-top: scale-margin(1);
+    font-size: scale-font(1);
+}
 
-h4 { margin-top: scale-margin(0);
-     font-size: scale-font(0);
-     font-style: italic; }
+h4 {
+    margin-top: scale-margin(0);
+    font-size: scale-font(0);
+    font-style: italic;
+}
 
-h1 + h2,
+h1 + *,
 h2 + h3,
-h3 + h4 { margin-top: $whitespace * 2; }
-
-ol,
-ul { padding-left: $whitespace * 2;
-     list-style: outside;
-
-     ol,
-     ul { padding-left: $whitespace * 1.5;
-          margin-bottom: $whitespace / 2; } }
-
-ol { list-style-type: decimal; }
-
-ul { list-style-type: disc; }
+h3 + h4 {
+    margin-top: $whitespace * 2;
+}
 
 p + ol,
-p + ul { margin-top: $whitespace / -2; }
+p + ul {
+    margin-top: $whitespace * -.5;
+}
 
-li { padding-left: 0;
-     margin-bottom: $whitespace / 8; }
+ol,
+ul {
+    padding-left: $whitespace * 2;
+    list-style: outside;
 
-a { color: $color-action;
+    ol,
+    ul {
+        margin-bottom: 0;
+        padding-left: $whitespace * 1.5;
+    }
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+li {
+    margin-top: $whitespace * .25;
+    padding-left: 0;
+}
+
+a {
+    color: $color-action;
     text-decoration: none;
 
     &:hover,
     &:focus,
-    &:active { outline: none;
-               text-decoration: underline; } }
+    &:active {
+        text-decoration: underline;
+    }
+}
 
-code { font-family: $font-stack-3;
-       font-size: $font-size-small; }
+code {
+    font-family: $font-stack-3;
+    font-size: $font-size-small;
+}
 
+iframe,
 img,
 figure,
 blockquote,
 pre,
-table,
-iframe { margin-top: $whitespace * 1.5;
-         margin-bottom: $whitespace * 1.5; }
+table {
+    margin: ($whitespace * 1.33) 0;
+}
 
-img { display: block;
-      max-width: 100%; }
+img {
+    display: block;
+    max-width: 100%;
+}
 
-img + figcaption { margin-top: $whitespace / -2; }
+img + figcaption {
+    margin-top: $whitespace * -.66;
+}
 
-figcaption,
-pre,
-table { font-size: $font-size-small; }
+figcaption {
+    font-size: $font-size-small;
+    font-style: italic;
+    color: $color-text-light;
+}
 
-figcaption,
-blockquote,
-caption { font-style: italic;
-          color: $color-text-light; }
+blockquote {
+    border-left: 1px solid $color-text-light;
+    padding-left: $whitespace;
+    font-style: italic;
+    color: $color-text-light;
+}
 
-blockquote { margin-left: $whitespace; }
+pre {
+    overflow-x: auto;
+    border: 1px solid $color-text-light;
+    padding: ($whitespace * .66) $whitespace ($whitespace * .75) $whitespace;
+    font-size: $font-size-small;
+}
 
-pre { overflow-x: auto;
-      padding: ($whitespace * 0.66) $whitespace ($whitespace * 0.75) $whitespace;
-      border: 1px solid $color-text-light; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    font-size: $font-size-small;
+}
 
-table { width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-        text-align: left; }
-
-caption { margin-top: $whitespace;
-          caption-side: bottom;
-          text-align: left; }
+caption {
+    margin-top: $whitespace * .5;
+    caption-side: bottom;
+    text-align: left;
+    font-style: italic;
+    color: $color-text-light;
+}
 
 thead,
 tfoot,
-th { font-weight: bold;
-     font-family: $font-stack-2; }
+th {
+    background: rgba(0, 0, 0, .1);
+    font-weight: bold;
+    font-family: $font-stack-2;
+}
 
-tr { border: 1px solid $color-text-light; }
+tr {
+    border: 1px solid $color-text-light;
+}
 
 th,
-td { padding: ($whitespace * 0.66) ($whitespace / 2) ($whitespace * 0.75) ($whitespace / 2);
-     vertical-align: top;
+td {
+    padding: ($whitespace * .5) ($whitespace * .66);
+    vertical-align: top;
+}
 
-     &:first-child { padding-left: $whitespace; }
-     &:last-child { padding-right: $whitespace; } }
-
-hr { width: 100%;
-     height: 1px;
-     margin-top: scale-margin(2);
-     margin-bottom: scale-margin(2);
-     border: none;
-     background: $color-text-light; }
+hr {
+    width: 100%;
+    height: 1px;
+    margin: scale-margin(2) 0;
+    border: none;
+    background: $color-text-light;
+}
