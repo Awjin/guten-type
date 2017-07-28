@@ -53,11 +53,6 @@ h3 + h4 {
     margin-top: $whitespace * 2;
 }
 
-p + ol,
-p + ul {
-    margin-top: $whitespace * -.5;
-}
-
 ol,
 ul {
     padding-left: $whitespace * 2;
@@ -79,7 +74,7 @@ ul {
 }
 
 li {
-    margin-top: $whitespace * .25;
+    margin-top: $whitespace * .125;
     padding-left: 0;
 }
 
