@@ -21,6 +21,7 @@ h1,
 h2,
 h3,
 h4 {
+    line-height: $line-height-small;
     font-family: $font-stack-2;
     font-weight: normal;
 }
@@ -55,7 +56,7 @@ h3 + h4 {
 ol,
 ul {
     padding-left: $static-whitespace * 2;
-    line-height: $line-height * 1.1;
+    line-height: $line-height-large;
     list-style: outside;
 
     ol,
