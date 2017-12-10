@@ -1,0 +1,380 @@
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article, aside, footer, header, nav, section {
+  display: block; }
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0; }
+
+figcaption, figure, main {
+  display: block; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible; }
+
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em; }
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted; }
+
+b, strong {
+  font-weight: inherit; }
+
+b, strong {
+  font-weight: bolder; }
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -.25em; }
+
+sup {
+  top: -.5em; }
+
+audio, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+img {
+  border-style: none; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0; }
+
+button, input {
+  overflow: visible; }
+
+button, select {
+  text-transform: none; }
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  padding: .35em .75em .625em; }
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+progress {
+  display: inline-block;
+  vertical-align: baseline; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"], [type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+[type="search"]::-webkit-search-cancel-button, [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+details, menu {
+  display: block; }
+
+summary {
+  display: list-item; }
+
+canvas {
+  display: inline-block; }
+
+template {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+html,
+body {
+  background: #fff8ea;
+  line-height: 1.5;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #1f181a; }
+
+h1,
+h2,
+h3,
+h4,
+p,
+ol,
+ul {
+  margin-bottom: 27px; }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: normal; }
+
+h1 {
+  margin-top: 0;
+  font-size: 39.55078125px; }
+
+h2 {
+  margin-top: 80.7975px;
+  font-size: 31.640625px; }
+
+h3 {
+  margin-top: 53.865px;
+  font-size: 25.3125px; }
+
+h4 {
+  margin-top: 35.91px;
+  font-size: 20.25px;
+  font-style: italic; }
+
+h1 + *,
+h2 + h3,
+h3 + h4 {
+  margin-top: 54px; }
+
+ol,
+ul {
+  padding-left: 54px;
+  line-height: 1.65;
+  list-style: outside; }
+  ol ol,
+  ol ul,
+  ul ol,
+  ul ul {
+    margin-bottom: 0;
+    padding-left: 40.5px; }
+
+ol {
+  list-style-type: decimal; }
+
+ul {
+  list-style-type: disc; }
+
+li {
+  padding-left: 0; }
+
+a {
+  text-decoration: none;
+  color: #08e; }
+  a:hover, a:focus, a:active {
+    text-decoration: underline; }
+
+code {
+  font-family: Andale Mono, "Lucida Console", monospace;
+  font-size: 16.2px; }
+
+iframe,
+img,
+figure,
+table {
+  margin: 44.82px 0; }
+
+img {
+  display: block;
+  max-width: 100%; }
+
+img + figcaption {
+  margin-top: -27px; }
+
+figcaption {
+  font-size: 16.2px;
+  font-style: italic;
+  color: #3f383a; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 16.2px; }
+
+caption {
+  margin-top: 13.5px;
+  caption-side: bottom;
+  text-align: left;
+  font-style: italic;
+  color: #3f383a; }
+
+thead,
+tfoot,
+th {
+  background: rgba(0, 0, 0, 0.1);
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold; }
+
+tr {
+  border: 1px solid #3f383a; }
+
+th,
+td {
+  vertical-align: top;
+  padding: 13.5px 17.82px; }
+
+blockquote,
+pre {
+  margin: 35.91px 0; }
+
+blockquote {
+  border-left: 1px solid #3f383a;
+  padding-left: 27px;
+  font-style: italic;
+  color: #3f383a; }
+
+pre {
+  overflow-x: auto;
+  border: 1px solid #3f383a;
+  padding: 17.82px 27px 20.25px 27px;
+  font-size: 16.2px; }
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin: 80.7975px 0;
+  border: none;
+  background: #3f383a; }
+
+@media all and (min-width: 1000px) {
+  html,
+  body {
+    font-size: 1.75vmax; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ol,
+  ul {
+    margin-bottom: 2.625vmax; }
+
+  h1 {
+    font-size: 3.8452148438vmax; }
+
+  h2 {
+    margin-top: 7.8553125vmax;
+    font-size: 3.076171875vmax; }
+
+  h3 {
+    margin-top: 5.236875vmax;
+    font-size: 2.4609375vmax; }
+
+  h4 {
+    margin-top: 3.49125vmax;
+    font-size: 1.96875vmax; }
+
+  h1 + *,
+  h2 + h3,
+  h3 + h4 {
+    margin-top: 5.25vmax; }
+
+  ol,
+  ul {
+    padding-left: 5.25vmax; }
+    ol ol,
+    ol ul,
+    ul ol,
+    ul ul {
+      padding-left: 3.9375vmax; }
+
+  code {
+    font-size: 1.575vmax; }
+
+  iframe,
+  img,
+  figure,
+  table {
+    margin: 4.3575vmax 0; }
+
+  img + figcaption {
+    margin-top: -2.625vmax; }
+
+  figcaption {
+    font-size: 1.575vmax; }
+
+  table {
+    font-size: 1.575vmax; }
+
+  caption {
+    margin-top: 1.3125vmax; }
+
+  blockquote,
+  pre {
+    margin: 3.49125vmax 0; }
+
+  blockquote {
+    padding-left: 2.625vmax; }
+
+  pre {
+    font-size: 1.575vmax; }
+
+  hr {
+    margin: 7.8553125vmax 0; } }

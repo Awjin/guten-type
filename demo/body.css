@@ -1,0 +1,13 @@
+body {
+    max-width: 600px;
+    margin: auto;
+    padding: 10vh 1.5rem 20vh 1.5rem;
+}
+
+@media all and (min-width: 1000px) {
+    body {
+        max-width: 60vw;
+        padding-top: 15vh;
+        padding-bottom: 30vh;
+    }
+}
