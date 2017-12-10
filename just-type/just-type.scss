@@ -1,0 +1,9 @@
+@import
+    "config",
+    "lib/normalize-v7.0.0",
+    "lib/scale-functions",
+    "lib/typography-static";
+
+@media all and (min-width: $responsive-breakpoint) {
+    @import "lib/typography-responsive";
+}

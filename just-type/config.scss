@@ -1,0 +1,25 @@
+$line-height: 1.5;
+
+$static-font-size: 18px;
+$static-font-size-small: $static-font-size * 0.9;
+$static-whitespace: $static-font-size * $line-height;
+
+$responsive-breakpoint: 1000px;
+
+$responsive-font-size: 1.75vmax;
+$responsive-font-size-small: $responsive-font-size * 0.9;
+$responsive-whitespace: $responsive-font-size * $line-height;
+
+$font-scale-start: 1.125;
+$font-scale-ratio: 1.25;
+$margin-scale-start: 1.33;
+$margin-scale-ratio: 1.5;
+
+$font-stack-1: Georgia, serif;
+$font-stack-2: 'Trebuchet MS', sans-serif;
+$font-stack-3: Andale Mono, "Lucida Console", monospace;
+
+$color-background: #fff8ea;
+$color-text: #1f181a;
+$color-text-light: #3f383a;
+$color-action: #08e;

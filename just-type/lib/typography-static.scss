@@ -1,9 +1,9 @@
 html,
 body {
     background: $color-background;
-    font-family: $font-stack-1;
-    font-size: $font-size;
     line-height: $line-height;
+    font-family: $font-stack-1;
+    font-size: $static-font-size;
     color: $color-text;
 }
 
@@ -14,7 +14,7 @@ h4,
 p,
 ol,
 ul {
-    margin-bottom: $whitespace;
+    margin-bottom: $static-whitespace;
 }
 
 h1,
@@ -23,45 +23,45 @@ h3,
 h4 {
     font-family: $font-stack-2;
     font-weight: normal;
-    color: $color-text-light
 }
 
 h1 {
     margin-top: 0;
-    font-size: scale-font(3);
+    font-size: scale-static-font(3);
 }
 
 h2 {
-    margin-top: scale-margin(2);
-    font-size: scale-font(2);
+    margin-top: scale-static-margin(2);
+    font-size: scale-static-font(2);
 }
 
 h3 {
-    margin-top: scale-margin(1);
-    font-size: scale-font(1);
+    margin-top: scale-static-margin(1);
+    font-size: scale-static-font(1);
 }
 
 h4 {
-    margin-top: scale-margin(0);
-    font-size: scale-font(0);
+    margin-top: scale-static-margin(0);
+    font-size: scale-static-font(0);
     font-style: italic;
 }
 
 h1 + *,
 h2 + h3,
 h3 + h4 {
-    margin-top: $whitespace * 2;
+    margin-top: $static-whitespace * 2;
 }
 
 ol,
 ul {
-    padding-left: $whitespace * 2;
+    padding-left: $static-whitespace * 2;
+    line-height: $line-height * 1.1;
     list-style: outside;
 
     ol,
     ul {
         margin-bottom: 0;
-        padding-left: $whitespace * 1.5;
+        padding-left: $static-whitespace * 1.5;
     }
 }
 
@@ -74,13 +74,12 @@ ul {
 }
 
 li {
-    margin-top: $whitespace * .05;
     padding-left: 0;
 }
 
 a {
-    color: $color-action;
     text-decoration: none;
+    color: $color-action;
 
     &:hover,
     &:focus,
@@ -91,14 +90,14 @@ a {
 
 code {
     font-family: $font-stack-3;
-    font-size: $font-size-small;
+    font-size: $static-font-size-small;
 }
 
 iframe,
 img,
 figure,
 table {
-    margin: ($whitespace * 2.33) 0;
+    margin: ($static-whitespace * 1.66) 0;
 }
 
 img {
@@ -107,11 +106,11 @@ img {
 }
 
 img + figcaption {
-    margin: ($whitespace * -1.66) 0 ($whitespace * 2.33) 0;
+    margin-top: $static-whitespace * -1;
 }
 
 figcaption {
-    font-size: $font-size-small;
+    font-size: $static-font-size-small;
     font-style: italic;
     color: $color-text-light;
 }
@@ -121,11 +120,11 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
-    font-size: $font-size-small;
+    font-size: $static-font-size-small;
 }
 
 caption {
-    margin-top: $whitespace * .5;
+    margin-top: $static-whitespace * .5;
     caption-side: bottom;
     text-align: left;
     font-style: italic;
@@ -136,8 +135,8 @@ thead,
 tfoot,
 th {
     background: rgba(0, 0, 0, .1);
-    font-weight: bold;
     font-family: $font-stack-2;
+    font-weight: bold;
 }
 
 tr {
@@ -146,18 +145,18 @@ tr {
 
 th,
 td {
-    padding: ($whitespace * .5) ($whitespace * .66);
     vertical-align: top;
+    padding: ($static-whitespace * .5) ($static-whitespace * .66);
 }
 
 blockquote,
 pre {
-    margin: ($whitespace * 1.33) 0;
+    margin: ($static-whitespace * 1.33) 0;
 }
 
 blockquote {
     border-left: 1px solid $color-text-light;
-    padding-left: $whitespace;
+    padding-left: $static-whitespace;
     font-style: italic;
     color: $color-text-light;
 }
@@ -165,14 +164,14 @@ blockquote {
 pre {
     overflow-x: auto;
     border: 1px solid $color-text-light;
-    padding: ($whitespace * .66) $whitespace ($whitespace * .75) $whitespace;
-    font-size: $font-size-small;
+    padding: ($static-whitespace * .66) $static-whitespace ($static-whitespace * .75) $static-whitespace;
+    font-size: $static-font-size-small;
 }
 
 hr {
     width: 100%;
     height: 1px;
-    margin: scale-margin(2) 0;
+    margin: scale-static-margin(2) 0;
     border: none;
     background: $color-text-light;
 }
