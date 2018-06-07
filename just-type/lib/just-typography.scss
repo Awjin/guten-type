@@ -1,0 +1,208 @@
+@mixin just-typography($whitespace, $font-size, $font-size-small) {
+  & {
+    background: $color-background;
+    color: $color-text;
+    font-family: $font-stack-1;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+
+  //
+  // Spacing between elements
+  //
+
+  h1,
+  h2,
+  h3,
+  h4,
+  ol,
+  p,
+  ul {
+    margin-bottom: $whitespace;
+  }
+
+  iframe,
+  img,
+  figure,
+  table {
+    margin: ($whitespace * 1.66) 0;
+  }
+
+  //
+  // Headings
+  //
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: $font-stack-2;
+    font-weight: normal;
+    line-height: $line-height-small;
+  }
+
+  h1 {
+    font-size: scale-font-size($font-size, 3);
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: scale-font-size($font-size, 2);
+    margin-top: scale-whitespace($whitespace, 2);
+  }
+
+  h3 {
+    font-size: scale-font-size($font-size, 1);
+    margin-top: scale-whitespace($whitespace, 1);
+  }
+
+  h4 {
+    font-size: scale-font-size($font-size, 0);
+    font-style: italic;
+    margin-top: scale-whitespace($whitespace, 0);
+  }
+
+  h1 + *,
+  h2 + h3,
+  h3 + h4 {
+    margin-top: $whitespace * 2;
+  }
+
+  //
+  // Lists
+  //
+
+  ol,
+  ul {
+    line-height: $line-height-large;
+    list-style: outside;
+    padding-left: $whitespace * 2;
+
+    ol,
+    ul {
+      margin-bottom: 0;
+      padding-left: $whitespace * 1.5;
+    }
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    padding-left: 0;
+  }
+
+  //
+  // Links
+  //
+
+  a {
+    color: $color-action;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  //
+  // Specially formatted text
+  //
+
+  blockquote {
+    border-left: 1px solid $color-text-light;
+    color: $color-text-light;
+    font-style: italic;
+    margin: ($whitespace * 1.33) 0;
+    padding-left: $whitespace;
+  }
+
+  pre {
+    border: 1px solid $color-text-light;
+    font-size: $font-size-small;
+    margin: ($whitespace * 1.33) 0;
+    overflow-x: auto;
+    padding: ($whitespace * .66) $whitespace ($whitespace * .75) $whitespace;
+  }
+
+  code {
+    font-family: $font-stack-3;
+    font-size: $font-size-small;
+  }
+
+  //
+  // Images & Figures
+  //
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  figcaption {
+    color: $color-text-light;
+    font-size: $font-size-small;
+    font-style: italic;
+  }
+
+  img + figcaption {
+    margin-top: $whitespace * -1;
+  }
+
+  //
+  // Tables
+  //
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: $font-size-small;
+    text-align: left;
+    width: 100%;
+  }
+
+  tfoot,
+  th,
+  thead {
+    background: rgba(0, 0, 0, .1);
+    font-family: $font-stack-2;
+    font-weight: bold;
+  }
+
+  td,
+  th {
+    padding: ($whitespace * .5) ($whitespace * .66);
+    vertical-align: top;
+  }
+
+  tr {
+    border: 1px solid $color-text-light;
+  }
+
+  caption {
+    caption-side: bottom;
+    color: $color-text-light;
+    font-style: italic;
+    margin-top: $whitespace * .5;
+    text-align: left;
+  }
+
+  //
+  // Page-break
+  //
+
+  hr {
+    background: $color-text-light;
+    border: none;
+    height: 1px;
+    margin: scale-whitespace($whitespace, 2) 0;
+    width: 100%;
+  }
+}

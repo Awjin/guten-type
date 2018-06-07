@@ -2,13 +2,21 @@
   @import "config",
           "lib/normalize-v8.0.0",
           "lib/scale-functions",
-          "lib/typography-base";
+          "lib/just-typography";
 
   @media all and (max-width: $responsive-breakpoint) {
-    @import "lib/typography-static";
+    @include just-typography(
+      $whitespace-static,
+      $font-size-static,
+      $font-size-small-static
+    );
   }
 
   @media all and (min-width: $responsive-breakpoint) {
-    @import "lib/typography-responsive";
+    @include just-typography(
+      $whitespace-responsive,
+      $font-size-responsive,
+      $font-size-small-responsive
+    );
   }
 }

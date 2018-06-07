@@ -1,51 +1,23 @@
-@function scale-static-font($exponent) {
-  @return scale(
-    $font-size-static,
-    $font-scale-start,
-    $font-scale-ratio,
-    $exponent
-  );
+@function scale-font-size($font-size, $exponent) {
+  @return $font-size *
+          $font-size-scale-start *
+          exponentiate($font-size-scale-ratio, $exponent);
 }
 
-@function scale-static-margin($exponent) {
-  @return scale(
-    $whitespace-static,
-    $margin-scale-start,
-    $margin-scale-ratio,
-    $exponent
-  );
-}
-
-@function scale-responsive-font($exponent) {
-  @return scale(
-    $font-size-responsive,
-    $font-scale-start,
-    $font-scale-ratio,
-    $exponent
-  );
-}
-
-@function scale-responsive-margin($exponent) {
-  @return scale(
-    $whitespace-responsive,
-    $margin-scale-start,
-    $margin-scale-ratio,
-    $exponent
-  );
-}
-
-@function scale($base, $start, $ratio, $exponent) {
-  @return $base * $start * exponentiate($ratio, $exponent);
+@function scale-whitespace($whitespace, $exponent) {
+  @return $whitespace *
+          $whitespace-scale-start *
+          exponentiate($whitespace-scale-ratio, $exponent);
 }
 
 @function exponentiate($base, $exponent) {
-  $power: 1;
+  $result: 1;
 
   @if $exponent > 0 {
     @for $i from 1 through $exponent {
-      $power: $power * $base;
+      $result: $result * $base;
     }
   }
 
-  @return $power;
+  @return $result;
 }
