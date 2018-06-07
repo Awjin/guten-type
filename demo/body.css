@@ -4,9 +4,9 @@ body {
     padding: 10vh 1.5rem 20vh 1.5rem;
 }
 
-@media all and (min-width: 1000px) {
+@media all and (min-width: 1059px) {
     body {
-        max-width: 60vw;
+        max-width: 55vw;
         padding-top: 15vh;
         padding-bottom: 30vh;
     }
