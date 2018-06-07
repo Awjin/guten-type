@@ -1,19 +1,21 @@
 $line-height: 1.5;
-$line-height-small: $line-height * .9;
-$line-height-large: $line-height * 1.1;
+$line-height-small: .9 * $line-height;
+$line-height-large: 1.1 * $line-height;
 
-$static-font-size: 18px;
-$static-font-size-small: $static-font-size * 0.9;
-$static-whitespace: $static-font-size * $line-height;
+$font-size-static: 18px;
+$font-size-responsive: 1.75vmax;
+
+$font-size-small-static: .9 * $font-size-static;
+$font-size-small-responsive: .9 * $font-size-responsive;
+
+$whitespace-static: $font-size-static * $line-height;
+$whitespace-responsive: $font-size-responsive * $line-height;
 
 $responsive-breakpoint: 1000px;
 
-$responsive-font-size: 1.75vmax;
-$responsive-font-size-small: $responsive-font-size * 0.9;
-$responsive-whitespace: $responsive-font-size * $line-height;
-
 $font-scale-start: 1.125;
 $font-scale-ratio: 1.25;
+
 $margin-scale-start: 1.33;
 $margin-scale-ratio: 1.5;
 
