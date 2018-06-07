@@ -1,6 +1,5 @@
-html,
-body {
-    font-size: $responsive-font-size;
+& {
+  font-size: $responsive-font-size;
 }
 
 h1,
@@ -10,84 +9,90 @@ h4,
 p,
 ol,
 ul {
-    margin-bottom: $responsive-whitespace;
+  margin-bottom: $responsive-whitespace;
 }
 
 h1 {
-    font-size: scale-responsive-font(3);
+  font-size: scale-responsive-font(3);
 }
 
 h2 {
-    margin-top: scale-responsive-margin(2);
-    font-size: scale-responsive-font(2);
+  font-size: scale-responsive-font(2);
+  margin-top: scale-responsive-margin(2);
 }
 
 h3 {
-    margin-top: scale-responsive-margin(1);
-    font-size: scale-responsive-font(1);
+  font-size: scale-responsive-font(1);
+  margin-top: scale-responsive-margin(1);
 }
 
 h4 {
-    margin-top: scale-responsive-margin(0);
-    font-size: scale-responsive-font(0);
+  font-size: scale-responsive-font(0);
+  margin-top: scale-responsive-margin(0);
 }
 
 h1 + *,
 h2 + h3,
 h3 + h4 {
-    margin-top: $responsive-whitespace * 2;
+  margin-top: $responsive-whitespace * 2;
 }
 
 ol,
 ul {
-    padding-left: $responsive-whitespace * 2;
+  padding-left: $responsive-whitespace * 2;
 
-    ol,
-    ul {
-        padding-left: $responsive-whitespace * 1.5;
-    }
+  ol,
+  ul {
+    padding-left: $responsive-whitespace * 1.5;
+  }
 }
 
 code {
-    font-size: $responsive-font-size-small;
+  font-size: $responsive-font-size-small;
 }
 
 iframe,
 img,
 figure,
 table {
-    margin: ($responsive-whitespace * 1.66) 0;
+  margin: ($responsive-whitespace * 1.66) 0;
 }
 
 img + figcaption {
-    margin-top: $responsive-whitespace * -1;
+  margin-top: $responsive-whitespace * -1;
 }
 
 figcaption {
-    font-size: $responsive-font-size-small;
+  font-size: $responsive-font-size-small;
 }
 
 table {
-    font-size: $responsive-font-size-small;
+  font-size: $responsive-font-size-small;
 }
 
 caption {
-    margin-top: $responsive-whitespace * .5;
+  margin-top: $responsive-whitespace * .5;
+}
+
+th,
+td {
+  padding: ($responsive-whitespace * .5) ($responsive-whitespace * .66);
 }
 
 blockquote,
 pre {
-    margin: ($responsive-whitespace * 1.33) 0;
+  margin: ($responsive-whitespace * 1.33) 0;
 }
 
 blockquote {
-    padding-left: $responsive-whitespace;
+  padding-left: $responsive-whitespace;
 }
 
 pre {
-    font-size: $responsive-font-size-small;
+  font-size: $responsive-font-size-small;
+  padding: ($responsive-whitespace * .66) $responsive-whitespace ($responsive-whitespace * .75) $responsive-whitespace;
 }
 
 hr {
-    margin: scale-responsive-margin(2) 0;
+  margin: scale-responsive-margin(2) 0;
 }

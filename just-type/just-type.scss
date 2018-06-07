@@ -1,9 +1,14 @@
-@import
-    "config",
-    "lib/normalize-v7.0.0",
-    "lib/scale-functions",
-    "lib/typography-static";
+.just-type {
+  @import "config",
+          "lib/normalize-v8.0.0",
+          "lib/scale-functions",
+          "lib/typography-base";
 
-@media all and (min-width: $responsive-breakpoint) {
+  @media all and (max-width: $responsive-breakpoint) {
+    @import "lib/typography-static";
+  }
+
+  @media all and (min-width: $responsive-breakpoint) {
     @import "lib/typography-responsive";
+  }
 }
