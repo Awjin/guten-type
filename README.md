@@ -1,17 +1,20 @@
 # JustType
 
-### [See the demo](https://awjin.github.io/just-type/)
+#### [SEE THE DEMO &rarr;](https://awjin.github.io/just-type/)
 
-JustType is a simple sass mixin for generating good typography. Feed it base values, such as font size, and it'll create a stylesheet for you.
+JustType is a sass mixin that generates correct typographic styles. Configure it with base values, such as `font-size`, and it'll ensure your text scales responsively to any display.
 
-### Who's it for?
 
-It's for all you hacker-bloggers, itching to publish thoughts to the web. (Perhaps as a jekyll site hosted on github pages?) Let JustType automate the typography, so you can focus on what matters: writing the content.
+#### Usage
 
-### Usage
+Include `just-type.scss` in your build.
 
-  - You'll likely be tweaking the values in `lib/config.scss`
 
-  - Dive into `lib/style.scss` if you want more control
+#### Modifying styles
 
-  - `./run` starts a `sass --watch` session, outputting to `just-type.css`
+  - Tweak config values in `lib/config.scss`
+  - Dive into `lib/just-typography.scss` for more control
+
+#### Quick testing
+
+Running `docs/make.sh` starts a `sass --watch` session, which outputs a stylesheet for the local demo site, `docs/index.html`.
