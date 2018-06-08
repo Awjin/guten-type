@@ -9,14 +9,16 @@
     body {
       max-width: 600px;
       margin: auto;
-      padding: 10vh 1.5rem 20vh 1.5rem;
+      padding: 12vh 1.5rem 24vh 1.5rem;
+    }
+
+    img {
+      opacity: .9;
     }
 
     @media all and (min-width: 1059px) {
       body {
         max-width: 55vw;
-        padding-top: 15vh;
-        padding-bottom: 30vh;
       }
     }
   </style>
@@ -31,30 +33,27 @@
   <hr>
 
   <p>
-    <strong>JustType</strong> is a sass mixin that automates good typography.
-    Feed it base values, such as <code>font-size</code>, and it'll generate
-    typographic styles that scale beautifully to any display. This demo uses a
-    stylesheet created with the default values.
+    <strong>JustType</strong> is a sass mixin that generates correct typographic
+    styles. Configure it with base values, such as <code>font-size</code>, and
+    it'll ensure your text scales responsively to any display. This demo uses a
+    stylesheet made with the default values.
   </p>
 
-  <h2>Who's it for?</h2>
-
   <p>
-    It's for all you hacker-bloggers, itching to publish thoughts to the web
-    (perhaps using jekyll and github pages?). Let JustType automate the
-    typography, so you can focus on what matters: writing the content.
+    Include JustType in your build step to automate the typography, so you can
+    focus on what matters—<em>writing the content</em>.
   </p>
 
   <figure>
-    <img src="sad-human.png" alt="Sad human" style="opacity: .9">
+    <img src="sad-human.png" alt="Sad human">
     <figcaption>Writing without JustType: sad</figcaption>
   </figure>
 
-  <h2>How about markdown?</h2>
+  <h2>How about Markdown?</h2>
 
   <p>
-    JustType covers all html that can be generated from markdown. As a bonus,
-    the default font stack is web-safe:
+    JustType styles all markup that can be generated from Markdown. As a bonus,
+    the default font-stack is web-safe:
   </p>
 
   <p>
@@ -81,12 +80,12 @@
     </ol>
   </p>
 
-  <h2>Where's h5 and h6?</h2>
+  <h2>Where are h5 and h6?</h2>
 
   <p>
-    If a blog post needs an <code>h5</code>, I bet it also needs revising. If
-    you desperately need an <code>h6</code> though, it's easy to extend the
-    style. Add to <code>lib/typography-*.scss</code> like so:
+    If a blog post needs an <code>h5</code>, it might also need revising.
+    Regardless, it is easy to extend the style. Add to
+    <code>lib/just-typography.scss</code> like so:
   </p>
 
   <pre><code>h5,
@@ -96,15 +95,20 @@ h6 {
   // here
 }</code></pre>
 
-  <h2>But wait, there's more</h2>
+  <h2>See it on Github</h2>
 
   <blockquote>
     <p>
-      You can have all this, plus the source code, with just four easy payments
-      of free-ninety-nine!
+      This project grows as I continue to learn about typography and best
+      practices. If you have any suggestions, please send a pull request!
     </p>
   </blockquote>
 
-  <p><a href="https://github.com/Awjin/just-type/">See it on Github</a></p>
+  <p style="align-items: center; display: flex;">
+    <img style="height: 1.25rem; margin: 0;" src="github-icon.png">
+    <a style="margin-left: .75rem" href="https://github.com/Awjin/just-type/">
+      Source code
+    </a>
+  </p>
 </body>
 </html>

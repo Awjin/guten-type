@@ -83,7 +83,7 @@
 @media all and (max-width: 1059px) {
   .just-type {
     background: #fff8ea;
-    color: #1f181a;
+    color: rgba(0, 0, 0, 0.95);
     font-family: Georgia, serif;
     font-size: 18px;
     line-height: 1.45; }
@@ -128,13 +128,13 @@
   .just-type ul {
     line-height: 1.595;
     list-style: outside;
-    padding-left: 52.2px; }
+    padding-left: 39.15px; }
     .just-type ol ol,
     .just-type ol ul,
     .just-type ul ol,
     .just-type ul ul {
-      margin-bottom: 0;
-      padding-left: 39.15px; }
+      margin-bottom: 6.525px;
+      padding-left: 32.625px; }
   .just-type ol {
     list-style-type: decimal; }
   .just-type ul {
@@ -147,13 +147,13 @@
     .just-type a:hover, .just-type a:focus, .just-type a:active {
       text-decoration: underline; }
   .just-type blockquote {
-    border-left: 1px solid #3f383a;
-    color: #3f383a;
+    border-left: 1px solid rgba(0, 0, 0, 0.66);
+    color: rgba(0, 0, 0, 0.66);
     font-style: italic;
     margin: 34.713px 0;
     padding-left: 26.1px; }
   .just-type pre {
-    border: 1px solid #3f383a;
+    border: 1px solid rgba(0, 0, 0, 0.66);
     font-size: 16.2px;
     margin: 34.713px 0;
     overflow-x: auto;
@@ -165,7 +165,7 @@
     display: block;
     max-width: 100%; }
   .just-type figcaption {
-    color: #3f383a;
+    color: rgba(0, 0, 0, 0.66);
     font-size: 16.2px;
     font-style: italic; }
   .just-type img + figcaption {
@@ -187,15 +187,15 @@
     padding: 13.05px 17.226px;
     vertical-align: top; }
   .just-type tr {
-    border: 1px solid #3f383a; }
+    border: 1px solid rgba(0, 0, 0, 0.66); }
   .just-type caption {
     caption-side: bottom;
-    color: #3f383a;
+    color: rgba(0, 0, 0, 0.66);
     font-style: italic;
     margin-top: 13.05px;
     text-align: left; }
   .just-type hr {
-    background: #3f383a;
+    background: rgba(0, 0, 0, 0.66);
     border: none;
     height: 1px;
     margin: 78.10425px 0;
@@ -203,7 +203,7 @@
 @media all and (min-width: 1059px) {
   .just-type {
     background: #fff8ea;
-    color: #1f181a;
+    color: rgba(0, 0, 0, 0.95);
     font-family: Georgia, serif;
     font-size: 1.7vw;
     line-height: 1.45; }
@@ -248,13 +248,13 @@
   .just-type ul {
     line-height: 1.595;
     list-style: outside;
-    padding-left: 4.93vw; }
+    padding-left: 3.6975vw; }
     .just-type ol ol,
     .just-type ol ul,
     .just-type ul ol,
     .just-type ul ul {
-      margin-bottom: 0;
-      padding-left: 3.6975vw; }
+      margin-bottom: 0.61625vw;
+      padding-left: 3.08125vw; }
   .just-type ol {
     list-style-type: decimal; }
   .just-type ul {
@@ -267,13 +267,13 @@
     .just-type a:hover, .just-type a:focus, .just-type a:active {
       text-decoration: underline; }
   .just-type blockquote {
-    border-left: 1px solid #3f383a;
-    color: #3f383a;
+    border-left: 1px solid rgba(0, 0, 0, 0.66);
+    color: rgba(0, 0, 0, 0.66);
     font-style: italic;
     margin: 3.27845vw 0;
     padding-left: 2.465vw; }
   .just-type pre {
-    border: 1px solid #3f383a;
+    border: 1px solid rgba(0, 0, 0, 0.66);
     font-size: 1.53vw;
     margin: 3.27845vw 0;
     overflow-x: auto;
@@ -285,7 +285,7 @@
     display: block;
     max-width: 100%; }
   .just-type figcaption {
-    color: #3f383a;
+    color: rgba(0, 0, 0, 0.66);
     font-size: 1.53vw;
     font-style: italic; }
   .just-type img + figcaption {
@@ -307,15 +307,15 @@
     padding: 1.2325vw 1.6269vw;
     vertical-align: top; }
   .just-type tr {
-    border: 1px solid #3f383a; }
+    border: 1px solid rgba(0, 0, 0, 0.66); }
   .just-type caption {
     caption-side: bottom;
-    color: #3f383a;
+    color: rgba(0, 0, 0, 0.66);
     font-style: italic;
     margin-top: 1.2325vw;
     text-align: left; }
   .just-type hr {
-    background: #3f383a;
+    background: rgba(0, 0, 0, 0.66);
     border: none;
     height: 1px;
     margin: 7.3765125vw 0;
