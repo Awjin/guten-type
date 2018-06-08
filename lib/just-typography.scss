@@ -76,12 +76,12 @@
   ul {
     line-height: $line-height-large;
     list-style: outside;
-    padding-left: $whitespace * 2;
+    padding-left: $whitespace * 1.5;
 
     ol,
     ul {
-      margin-bottom: 0;
-      padding-left: $whitespace * 1.5;
+      margin-bottom: $whitespace / 4;
+      padding-left: $whitespace * 1.25;
     }
   }
 
