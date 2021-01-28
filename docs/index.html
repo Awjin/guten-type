@@ -2,113 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <link rel="stylesheet" href="assets/index.css">
   <title>JustType Demo</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      max-width: 600px;
-      margin: auto;
-      padding: 12vh 1.5rem 24vh 1.5rem;
-    }
-
-    img {
-      opacity: .9;
-    }
-
-    @media all and (min-width: 1059px) {
-      body {
-        max-width: 55vw;
-      }
-    }
-  </style>
 </head>
 
-<body class="just-type">
-  <h1>What is JustType?</h1>
-  <h2>What is JustType?</h2>
-  <h3>What is JustType?</h3>
-  <h4>What is JustType?</h4>
+<body>
+  <header>
+    <a class="github" href="https://github.com/awjin/just-type/">
+      <img src="assets/github.png" alt="Github link" />
+    </a>
+  </header>
 
-  <hr>
+  <main>
+    <h1>What is JustType?</h1>
+    <h2>What is JustType?</h2>
+    <h3>What is JustType?</h3>
+    <h4>What is JustType?</h4>
+    <h5>What is JustType?</h5>
+    <h6>~ 4 min read</h6>
 
-  <p>
-    <strong>JustType</strong> is a sass mixin that generates correct typographic
-    styles. Configure it with base values, such as <code>font-size</code>, and
-    it'll ensure your text scales responsively to any display. This demo uses a
-    stylesheet made with the default values.
-  </p>
+    <hr>
 
-  <p>
-    Include JustType in your build step to automate the typography, so you can
-    focus on what matters—<em>writing the content</em>.
-  </p>
+    <p>
+      <strong>JustType</strong> is a Sass library that creates correct
+      typography.
+    </p>
 
-  <figure>
-    <img src="sad-human.png" alt="Sad human">
-    <figcaption>Writing without JustType: sad</figcaption>
-  </figure>
+    <blockquote>
+      Wait. Can typography be correct?
+    </blockquote>
 
-  <h2>How about Markdown?</h2>
+    <p>
+      Yes. Typography was solved centuries ago, through science, by print
+      publishers. They created rules for proportionally scaling the size of
+      headings, creating whitespace, placing lines on the page, and more, that,
+      <em>when systematically applied</em>, yield text that is a joy to read.
+      This is one reason why books feel nicer to read in print than on the web.
+      Of course, a screen beaming light into your eyes is another reason, but
+      there are <strong>tons</strong> of improvements we can bring to web
+      typography to close the UX gap.
+    </p>
 
-  <p>
-    JustType styles all markup that can be generated from Markdown. As a bonus,
-    the default font-stack is web-safe:
-  </p>
+    <p>
+      We need to translate the rules of print into code. As it turns out, this
+      task is tedious and weird. For example, because text has a line-height,
+      the same value of whitespace applied to the margin of a <code>p</code> is
+      larger than when it's applied to the margin of an <code>img</code>. There
+      are countless minutiae like this to comb through and fix.
+    </p>
 
-  <p>
+    <blockquote>
+      And, anecdotally&mdash;I've wasted countless hours throughout my career
+      fiddling with the margins of an <code>h3</code> until it "felt" just
+      "right". I'm tired of making these imprecise, manual tweaks constantly.
+    </blockquote>
+
+    <p>So... what's the solution?</p>
+
+    <h2>JustType. Hear me out.</h2>
+
+    <p>
+      It handles all of that minutiae for you. It ships with a bunch of
+      <a href="https://github.com/Awjin/just-type/blob/master/_config.scss">default values</a>
+      that generate good, correct typography.  All you have to do is call the
+      <code>typography</code> mixin. Then, use all the free time you've
+      reclaimed to write good content and make cool things.
+    </p>
+
+    <pre><code>@use 'just-type';
+
+main {
+  @include just-type.typography;
+}</code></pre>
+
+    <p>
+      This website is styled with just the default values. To customize them,
+      call the <code>configure</code> mixin:
+    </p>
+
+    <pre><code>@use 'just-type';
+
+main {
+  /* STEP 1 (optional): Configure the module. */
+  @include just-type.configure(
+    $line-height: 1.4,
+    $font-size: 18px,
+    $font-stack: (
+      'heading': ('PT Serif', serif),
+      'body': ('PT Sans', sans-serif),
+      'mono': ('Roboto Mono', monospace),
+    ),
+  );
+
+  /* STEP 2: Use the module. */
+  @include just-type.typography;
+}</code></pre>
+
+    <p>
+      This is especially powerful if you have a static website or blog that
+      generates HTML from Markdown, since the <code>typography</code> mixin
+      covers every element that Markdown can generate. Configure it once, then
+      enjoy your super readable website. As an example,
+      <a href="https://awjin.me">this website</a> is styled throughout with
+      JustType, and has a blog section made with Jekyll.
+    </p>
+
+    <h3>Going Deeper</h3>
+
+    <p>
+      To create rhythm and harmony within text, the size of text elements should
+      scale at a fixed ratio as they move up the hierarchy. In other words, if
+      <code>p</code> is sized at <code>1rem</code>, the smallest heading should
+      have a font-size of <code>1rem * ratio</code>, the next heading up should
+      have a font-size of <code>1rem * ratio</code><sup><code>2</code></sup>,
+      and so on. The same applies to whitespace. JustType has these and other
+      typographic rules baked in, which means that no matter what base
+      configuration you give it, it will always generate correct styles.
+    </p>
+
+    <figure>
+      <img class="sad-boi" src="assets/sad-boi.png" alt="Sad boi">
+      <figcaption>Writing without JustType: sad</figcaption>
+    </figure>
+
+    <p>
+      There's a few other features too. My favorite is <code>responsive-breakpoint</code>;
+      if you configure this, JustType seamlessly changes the font-size from
+      static to responsive at the breakpoint. For example, let's say the
+      font-size is <code>16px</code> and <code>responsive-breakpoint</code> is
+      <code>1200px</code>. JustType calculates how much <code>vw</code> is equal
+      to <code>16px</code> at a viewport size of <code>1200px</code>. When the
+      breakpoint triggers, font-size is set to this <code>vw</code> value. Then,
+      as the viewport increases beyond the breakpoint, font-size scales with it,
+      "locking in" the relative size and proportions of the text. It's hard to
+      describe in words, so I'd encourage you to resize this window and see how
+      the text behaves.
+    </p>
+
+    <p>
+      You can access all config values by using the getter functions defined in
+      the config file, such as <code>config.whitespace()</code>.
+    </p>
+
+    <p>
+      And here's the default font-stack:
+    </p>
+
+    <table>
+      <tr>
+        <th>Heading</th>
+        <td>sans-serif</td>
+      </tr>
+      <tr>
+        <th>Body</th>
+        <td>Georgia, serif</td>
+      </tr>
+      <tr>
+        <th>Mono</th>
+        <td>Andale Mono, Lucida Console, monospace</td>
+      </tr>
+    </table>
+
+    <p>
+      There's more, but this article is getting too long.
+    </p>
+
+    <h4>Closing Remarks</h4>
+
     <ol>
       <li>
-        Serif
-        <ul>
-          <li>Georgia</li>
-        </ul>
+        Thank you for listening to my opinions.
       </li>
       <li>
-        Sans-serif
-        <ul>
-          <li>Trebuchet MS</li>
-        </ul>
+        Whitespace is hard but always worth it.
       </li>
       <li>
-        Monospace
+        If your website is text-heavy, JustType could improve the UX
+        significantly with just two lines of code.
         <ul>
-          <li>Andale Mono</li>
-          <li>Lucida Console</li>
+          <li>
+            And as an added bonus, you'll never have to write typographic styles
+            again.
+          </li>
         </ul>
       </li>
     </ol>
-  </p>
 
-  <h2>Where are h5 and h6?</h2>
-
-  <p>
-    If a blog post needs an <code>h5</code>, it might also need revising.
-    Regardless, it is easy to extend the style. Add to
-    <code>lib/just-typography.scss</code> like so:
-  </p>
-
-  <pre><code>h5,
-h6 {
-  // your
-  // style
-  // here
-}</code></pre>
-
-  <h2>See it on Github</h2>
-
-  <blockquote>
     <p>
-      This project grows as I continue to learn about typography and best
-      practices. If you have any suggestions, please send a pull request!
+      Here's the <a href="https://github.com/awjin/just-type">source code</a>.
+      I hope it's helpful. Please file an issue or a PR when you find
+      improvements.
     </p>
-  </blockquote>
+  </main>
 
-  <p style="align-items: center; display: flex;">
-    <img style="height: 1.25rem; margin: 0;" src="github-icon.png">
-    <a style="margin-left: .75rem" href="https://github.com/Awjin/just-type/">
-      Source code
-    </a>
-  </p>
+  <footer>
+    &copy; 2021 <a href="https://awjin.me">Awjin Ahn</a>
+  </footer>
 </body>
 </html>

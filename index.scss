@@ -1,0 +1,211 @@
+@forward 'config';
+@forward 'utils';
+
+@use 'sass:math';
+@use 'config';
+@use 'utils';
+
+// Generates typographic styles based on the values of `config`.
+//
+// If you want to override the default `config` values, do that first before
+// calling this mixin. For example:
+//
+//   ```
+//   @use 'just-type';
+//
+//   .your-div {
+//     @include just-type.configure(
+//       $font-size: 18px,
+//       $font-stack: (
+//         'heading': ('PT Serif', serif),
+//         'body': ('PT Sans', sans-serif),
+//         'mono': ('Roboto Mono', monospace),
+//       )
+//     );
+//
+//     @include just-type.typography;
+//   }
+//   ```
+@mixin typography {
+  $font-size-small: 0.9rem;
+  $border: config.border('weight') solid config.border('color');
+
+  // The font-size needs to be set on `html` so that we can use rem units.
+  @at-root html {
+    font-size: config.font-size();
+    @media all and (min-width: config.responsive-breakpoint()){
+      font-size: config.responsive-font-size();
+    }
+  }
+
+  line-height: config.line-height();
+  font-family: config.font-stack('body');
+  color: config.color('normal');
+
+  h1 {
+    @include _heading-style(1);
+  }
+
+  h2 {
+    @include _heading-style(2);
+  }
+
+  h3 {
+    @include _heading-style(3);
+  }
+
+  h4 {
+    @include _heading-style(4);
+  }
+
+  h5 {
+    @include _heading-style(5);
+    font-size: 1rem;
+  }
+
+  h6 {
+    @include _heading-style(6);
+    font-size: $font-size-small;
+    font-style: italic;
+  }
+
+  p,
+  ol,
+  ul {
+    margin: 0 0 config.whitespace() 0;
+  }
+
+  ol,
+  ul {
+    padding: 0 0 0 2rem;
+
+    ol,
+    ul {
+      padding: 0 0 0 1.75rem;
+    }
+  }
+
+  ol > li {
+    padding-left: 0.25rem;
+  }
+
+  li {
+    margin: 0 0 (0.25 * config.whitespace()) 0;
+
+    ol,
+    ul {
+      margin: (0.25 * config.whitespace()) 0;
+    }
+  }
+
+  p + ol,
+  p + ul {
+    margin-top: -0.25 * config.whitespace();
+  }
+
+  a {
+    color: config.color('action');
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  code {
+    font-family: config.font-stack('mono');
+    font-size: $font-size-small;
+  }
+
+  img,
+  iframe,
+  figure,
+  table,
+  pre {
+    display: block;
+    margin: utils.non-text-whitespace() 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  figcaption,
+  caption {
+    text-align: left;
+    font-size: $font-size-small;
+    font-style: italic;
+    color: config.color('light');
+  }
+
+  figcaption {
+    margin-top: 0.25 * utils.non-text-whitespace() - 2rem;
+  }
+
+  caption {
+    margin-top: 0.25 * utils.non-text-whitespace();
+    caption-side: bottom;
+  }
+
+  table {
+    overflow-x: auto;
+    max-width: fit-content;
+    border-collapse: collapse;
+    padding-bottom: 1px;  // prevents overflow-x from cutting off bottom border
+    font-size: $font-size-small;
+  }
+
+  thead,
+  tfoot,
+  th {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    border: $border;
+    padding: 0.33333rem 0.66667rem;
+    vertical-align: top;
+  }
+
+  blockquote {
+    margin: config.whitespace() 1rem;
+    border-left: $border;
+    padding-left: 0.75rem;
+    font-style: italic;
+    color: config.color('light');
+  }
+
+  pre {
+    overflow-x: auto;
+    border: $border;
+    padding: 0.75rem 1rem 1rem 1rem;
+    font-size: $font-size-small;
+  }
+
+  hr {
+    width: 100%;
+    height: config.border('weight');
+    margin: utils.non-text-whitespace() 0;
+    border: none;
+    background: config.border('color');
+  }
+}
+
+// Creates shared styles for headings by proportionally scaling font-size and
+// whitespace. Does not scale font-size/whitespace for headings smaller than h4.
+@mixin _heading-style($heading-idx) {
+  $scale-amount: math.max(4 - $heading-idx, 0);
+  $font-size: utils.scale-font-size($scale-amount);
+  font-size: $font-size;
+
+  $whitespace: utils.scale-whitespace($scale-amount);
+  $margin-bottom: $whitespace / ($font-size * config.line-height()) * 1rem;
+  margin: $whitespace 0 $margin-bottom 0;
+
+  line-height: 0.9 * config.line-height();
+  font-family: config.font-stack('heading');
+  font-weight: normal;
+}

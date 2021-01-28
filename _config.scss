@@ -1,0 +1,159 @@
+@use 'sass:color';
+@use 'sass:map';
+
+// Font-stacks for headings, body text, and monospaced text.
+$_font-stack: null;
+@function font-stack($key) {
+  @if $_font-stack {
+    @return map.get($_font-stack, $key);
+  } @else {
+    @return map.get((
+      'heading': (sans-serif),
+      'body': (Georgia, serif),
+      'mono': ('Andale Mono', 'Lucida Console', monospace),
+    ), $key);
+  }
+}
+
+// Base font-size of body text. Must be in px. This is auto-scaled smaller for
+// captions, code, etc.
+$_font-size: null;
+@function font-size() {
+  @return $_font-size or 16px;
+}
+
+// The min breakpoint at which font-size will switch from static to responsive
+// units. Must be in px.
+$_responsive-breakpoint: null;
+@function responsive-breakpoint() {
+  @return $_responsive-breakpoint;
+}
+
+// Calculated from the static font-size() if responsive-breakpoint() is set.
+// If the breakpoint isn't set, just returns the static font-size().
+// "Responsive" means that the font-size increases along with the viewport size,
+// therefore supporting infinitely large viewports.
+$_responsive-font-size: null;
+@function responsive-font-size() {
+  @if responsive-breakpoint() {
+    @return font-size() / responsive-breakpoint() * 100vw;
+  } @else {
+    @return font-size();
+  }
+}
+
+// Line-height of body text. This is auto-scaled smaller for headings.
+$_line-height: null;
+@function line-height() {
+  @return $_line-height or 1.5;
+}
+
+// The size of line breaks. Must be in rem.
+$_whitespace: null;
+@function whitespace() {
+  @return $_whitespace or 1rem * line-height();
+}
+
+// The exponential rate at which headings scale up in size. Initializes h4's
+// font-size to the body's font-size * `base`. Then, sets h3's font-size to
+// h4's font-size * `ratio`, and so on. (h5 and h6 have the same size as h4.)
+$_font-size-scale: null;
+@function font-size-scale($key) {
+  @if $_font-size-scale {
+    @return map.get($_font-size-scale, $key);
+  } @else {
+    @return map.get((
+      'base': 1.33333,
+      'ratio': 1.25,
+    ), $key);
+  }
+}
+
+// The exponential rate at which the whitespace above headings scale up in size.
+// Initializes h4's whitespace to the body's whitespace * `base`. Then, sets
+// h3's whitespace to h4's whitespace * `ratio`, and so on.
+$_whitespace-scale: null;
+@function whitespace-scale($key) {
+  @if $_whitespace-scale {
+    @return map.get($_whitespace-scale, $key);
+  } @else {
+    @return map.get((
+      'base': 1.5,
+      'ratio': 1.33333,
+    ), $key);
+  }
+}
+
+// The text colors.
+$_color: null;
+@function color($key) {
+  @if $_color {
+    @return map.get($_color, $key);
+  } @else {
+    @return map.get((
+      'normal': rgba(0, 0, 0, .95),
+      'light': rgba(0, 0, 0, .6),
+      'action': rgba(10, 40, 220, 0.95),
+    ), $key);
+  }
+}
+
+// The appearance of items that have a border: table, pre, hr, and blockquote.
+$_border: null;
+@function border($key) {
+  @if $_border {
+    @return map.get($_border, $key);
+  } @else {
+    @return map.get((
+      'color': color('light'),
+      'weight': 2px,
+    ), $key);
+  }
+}
+
+// Overrides default config values.
+//
+// TODO: Add guard statements for all values that require unit/unitless.
+@mixin configure(
+  $font-stack: null,
+  $color: null,
+  $font-size: null,
+  $responsive-breakpoint: null,
+  $responsive-font-size: null,
+  $font-size-scale: null,
+  $line-height: null,
+  $whitespace: null,
+  $whitespace-scale: null,
+  $border: null,
+) {
+  @if $font-stack {
+    $_font-stack: $font-stack !global;
+  }
+  @if $font-size {
+    $_font-size: $font-size !global;
+  }
+  @if $responsive-breakpoint {
+    $_responsive-breakpoint: $responsive-breakpoint !global;
+  }
+  @if $responsive-font-size {
+    $_responsive-font-size: $responsive-font-size !global;
+  }
+  @if $line-height {
+    $_line-height: $line-height !global;
+  }
+  @if $whitespace {
+    $_whitespace: $whitespace !global;
+  }
+  @if $font-size-scale {
+    $_font-size-scale: $font-size-scale !global;
+  }
+  @if $whitespace-scale {
+    $_whitespace-scale: $whitespace-scale !global;
+  }
+  @if $color {
+    $_color: $color !global;
+  }
+  @if $border {
+    $_border: $border !global;
+  }
+}

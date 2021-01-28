@@ -1,0 +1,4 @@
+sass \
+  --no-source-map \
+  --style compressed \
+  docs/index.scss:docs/assets/index.css
