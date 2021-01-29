@@ -1,3 +1,7 @@
+// These configuration values control how your typography will look. They all
+// have reasonable default values, but can be customized by calling the `set()`
+// mixin.
+
 @use 'sass:color';
 @use 'sass:map';
 
@@ -111,10 +115,27 @@ $_border: null;
   }
 }
 
-// Overrides default config values.
+// Call this before `press` if you want to configure the module's variables. For
+// example:
 //
+//   ```
+//   @use 'guten-type';
+//
+//   .your-div {
+//     @include guten-type.set(
+//       $font-size: 18px,
+//       $font-stack: (
+//         'heading': ('PT Serif', serif),
+//         'body': ('PT Sans', sans-serif),
+//         'mono': ('Roboto Mono', monospace),
+//       )
+//     );
+//
+//     @include guten-type.press();
+//   }
+//   ```
 // TODO: Add guard statements for all values that require unit/unitless.
-@mixin configure(
+@mixin set(
   $font-stack: null,
   $color: null,
   $font-size: null,

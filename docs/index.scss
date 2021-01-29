@@ -1,11 +1,10 @@
-@use 'assets/normalize';
-@use '../index' as just-type;
+@use '../index' as guten-type;
 
 body {
-  @include just-type.configure(
+  @include guten-type.set(
     $responsive-breakpoint: 1200px
   );
-  @include just-type.typography;
+  @include guten-type.press();
 
   background: #fff8ea;
 }
@@ -17,7 +16,7 @@ main {
 }
 
 .sad-boi {
-  border: 2px solid just-type.color('light');
+  border: 2px solid guten-type.color('light');
 }
 
 .github {
@@ -39,7 +38,7 @@ main {
 }
 
 footer {
-  padding: just-type.whitespace() 1.75rem;
+  padding: guten-type.whitespace() 1.75rem;
   text-align: right;
   font-size: 0.9rem;
 }

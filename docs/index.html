@@ -4,28 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
   <link rel="stylesheet" href="assets/index.css">
-  <title>JustType Demo</title>
+  <title>GutenType Demo</title>
 </head>
 
 <body>
   <header>
-    <a class="github" href="https://github.com/awjin/just-type/">
+    <a class="github" href="https://github.com/awjin/guten-type/">
       <img src="assets/github.png" alt="Github link" />
     </a>
   </header>
 
   <main>
-    <h1>What is JustType?</h1>
-    <h2>What is JustType?</h2>
-    <h3>What is JustType?</h3>
-    <h4>What is JustType?</h4>
-    <h5>What is JustType?</h5>
+    <h1>What is GutenType?</h1>
+    <h2>What is GutenType?</h2>
+    <h3>What is GutenType?</h3>
+    <h4>What is GutenType?</h4>
+    <h5>What is GutenType?</h5>
     <h6>~ 4 min read</h6>
 
     <hr>
 
     <p>
-      <strong>JustType</strong> is a Sass library that creates correct
+      <strong>GutenType</strong> is a Sass library that creates correct
       typography.
     </p>
 
@@ -36,12 +36,12 @@
     <p>
       Yes. Typography was solved centuries ago, through science, by print
       publishers. They created rules for proportionally scaling the size of
-      headings, creating whitespace, placing lines on the page, and more, that,
-      <em>when systematically applied</em>, yield text that is a joy to read.
-      This is one reason why books feel nicer to read in print than on the web.
-      Of course, a screen beaming light into your eyes is another reason, but
-      there are <strong>tons</strong> of improvements we can bring to web
-      typography to close the UX gap.
+      headings, calculating whitespace, positioning lines, etc. that, <em>when
+      systematically applied</em>, yield text that is a joy to read. This
+      explains why books feel nicer to read in print than on the web. Of course,
+      the screen beaming light into your eyes is another big reason, but there
+      are <strong>tons</strong> of improvements we can bring to web typography
+      to close the UX gap.
     </p>
 
     <p>
@@ -60,32 +60,34 @@
 
     <p>So... what's the solution?</p>
 
-    <h2>JustType. Hear me out.</h2>
+    <h2>GutenType. Hear me out.</h2>
 
     <p>
-      It handles all of that minutiae for you. It ships with a bunch of
-      <a href="https://github.com/Awjin/just-type/blob/master/_config.scss">default values</a>
-      that generate good, correct typography.  All you have to do is call the
-      <code>typography</code> mixin. Then, use all the free time you've
-      reclaimed to write good content and make cool things.
+      It handles all of that minutiae for you. Calling the <code>press()</code>
+      mixin assigns a base font-size to the <code>html</code> element, so that
+      all other styles can be derived from <code>1rem</code>. Then, it generates
+      the typography system.
     </p>
 
-    <pre><code>@use 'just-type';
+    <pre><code>@use 'guten-type';
 
 main {
-  @include just-type.typography;
+  @include guten-type.press();
 }</code></pre>
 
     <p>
-      This website is styled with just the default values. To customize them,
-      call the <code>configure</code> mixin:
+      It ships with a bunch of <a href="https://github.com/Awjin/guten-type/blob/master/_config.scss">default base values</a>.
+      This website is styled with those defaults. To customize them, call the
+      <code>set()</code> mixin before pressing. Since GutenType has typographic
+      rules baked in, it will always generate correct styles from the given
+      config.
     </p>
 
-    <pre><code>@use 'just-type';
+    <pre><code>@use 'guten-type';
 
 main {
   /* STEP 1 (optional): Configure the module. */
-  @include just-type.configure(
+  @include guten-type.set(
     $line-height: 1.4,
     $font-size: 18px,
     $font-stack: (
@@ -96,60 +98,62 @@ main {
   );
 
   /* STEP 2: Use the module. */
-  @include just-type.typography;
+  @include guten-type.press();
 }</code></pre>
 
     <p>
+
+    </p>
+
+    <p>
       This is especially powerful if you have a static website or blog that
-      generates HTML from Markdown, since the <code>typography</code> mixin
-      covers every element that Markdown can generate. Configure it once, then
-      enjoy your super readable website. As an example,
-      <a href="https://awjin.me">this website</a> is styled throughout with
-      JustType, and has a blog section made with Jekyll.
+      builds HTML from Markdown, since <code>press()</code> styles every element
+      that Markdown can generate. Configure it once, then enjoy your super
+      readable website. As an example, <a href="https://awjin.me">this website</a>
+      is styled throughout with GutenType, and has a blog section made with
+      Jekyll.
     </p>
 
     <h3>Going Deeper</h3>
 
     <p>
-      To create rhythm and harmony within text, the size of text elements should
-      scale at a fixed ratio as they move up the hierarchy. In other words, if
+      One key concept is typographic scale. To create rhythm and harmony, text
+      size should scale at a fixed ratio as you move up the hierarchy. If
       <code>p</code> is sized at <code>1rem</code>, the smallest heading should
       have a font-size of <code>1rem * ratio</code>, the next heading up should
-      have a font-size of <code>1rem * ratio</code><sup><code>2</code></sup>,
-      and so on. The same applies to whitespace. JustType has these and other
-      typographic rules baked in, which means that no matter what base
-      configuration you give it, it will always generate correct styles.
+      be <code>1rem * ratio</code><sup><code>2</code></sup>, and so on. The same
+      applies to whitespace. GutenType does these calculations for you.
     </p>
 
     <figure>
       <img class="sad-boi" src="assets/sad-boi.png" alt="Sad boi">
-      <figcaption>Writing without JustType: sad</figcaption>
+      <figcaption>Writing without GutenType: sad</figcaption>
     </figure>
 
     <p>
-      There's a few other features too. My favorite is <code>responsive-breakpoint</code>;
-      if you configure this, JustType seamlessly changes the font-size from
-      static to responsive at the breakpoint. For example, let's say the
-      font-size is <code>16px</code> and <code>responsive-breakpoint</code> is
-      <code>1200px</code>. JustType calculates how much <code>vw</code> is equal
-      to <code>16px</code> at a viewport size of <code>1200px</code>. When the
-      breakpoint triggers, font-size is set to this <code>vw</code> value. Then,
-      as the viewport increases beyond the breakpoint, font-size scales with it,
-      "locking in" the relative size and proportions of the text. It's hard to
-      describe in words, so I'd encourage you to resize this window and see how
-      the text behaves.
+      There's also the concept of a <code>responsive-breakpoint</code>. If set,
+      the font-size will seamlessly transition from static to responsive at the
+      breakpoint. For example, let's say that font-size is <code>16px</code> and
+      the <code>responsive-breakpoint</code> is <code>1200px</code>. GutenType
+      calculates how much <code>vw</code> is equal to <code>16px</code> at a
+      viewport size of <code>1200px</code>. When the breakpoint triggers, it
+      sets font-size to that <code>vw</code> value. As the viewport increases
+      beyond the breakpoint, font-size scales with it, "locking in" the relative
+      size and proportions of text. It's hard to describe in words, so I'd
+      encourage you to resize this window and see how it behaves.
     </p>
 
-    <p>
-      You can access all config values by using the getter functions defined in
-      the config file, such as <code>config.whitespace()</code>.
-    </p>
+    <h4>
+      Other Tidbits
+    </h4>
 
     <p>
-      And here's the default font-stack:
+      You can access all config values with getters like
+      <code>guten-type.whitespace()</code> to use in your Sass code.
     </p>
 
     <table>
+      <caption>This is the default font-stack.</caption>
       <tr>
         <th>Heading</th>
         <td>sans-serif</td>
@@ -165,10 +169,10 @@ main {
     </table>
 
     <p>
-      There's more, but this article is getting too long.
+      There's more, but I think it's time to wrap up this post.
     </p>
 
-    <h4>Closing Remarks</h4>
+    <h2>Closing Remarks</h2>
 
     <ol>
       <li>
@@ -178,11 +182,11 @@ main {
         Whitespace is hard but always worth it.
       </li>
       <li>
-        If your website is text-heavy, JustType could improve the UX
+        If your website is text-heavy, GutenType could improve the UX
         significantly with just two lines of code.
         <ul>
           <li>
-            And as an added bonus, you'll never have to write typographic styles
+            As an added bonus, you'll never have to write typographic styles
             again.
           </li>
         </ul>
@@ -190,9 +194,8 @@ main {
     </ol>
 
     <p>
-      Here's the <a href="https://github.com/awjin/just-type">source code</a>.
-      I hope it's helpful. Please file an issue or a PR when you find
-      improvements.
+      Here's the <a href="https://github.com/awjin/guten-type">source code</a>.
+      I hope you find it helpful. Please file an issue or a PR for improvements.
     </p>
   </main>
 

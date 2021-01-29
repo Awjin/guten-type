@@ -1,15 +1,15 @@
-# JustType
+# GutenType
 
-*See the [demo and explanation](https://awjin.me/just-type).*
+*See the [demo and explanation](https://awjin.me/guten-type).*
 
-JustType is a Sass library that creates correct typography.
+GutenType is a Sass library that creates correct typography.
 
 ```scss
-@use 'just-type';
+@use 'guten-type';
 
 main {
   /* STEP 1 (optional): Configure the module. */
-  @include just-type.configure(
+  @include guten-type.set(
     $line-height: 1.4,
     $font-size: 18px,
     $font-stack: (
@@ -20,7 +20,7 @@ main {
   );
 
   /* STEP 2: Use the module. */
-  @include just-type.typography;
+  @include guten-type.press;
 }
 ```
 

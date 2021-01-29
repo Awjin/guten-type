@@ -1,3 +1,6 @@
+// A collection of helper functions.
+
+@use 'sass:math';
 @use 'config';
 
 // Given the base and ratio defined in config.font-size-scale(), scales the
@@ -53,4 +56,27 @@
 //   ```
 @function non-text-whitespace() {
   @return 0.5rem + config.whitespace();
+}
+
+// Proportionally scales font-size for a heading. Does not scale smaller than
+// h4.
+@function heading-font-size($heading-idx) {
+  $scale-amount: math.max(4 - $heading-idx, 0);
+  @return scale-font-size($scale-amount);
+}
+
+// Proportionally scales the whitespace above a heading. Does not scale smaller
+// than h4.
+@function heading-margin-top($heading-idx) {
+  $scale-amount: math.max(4 - $heading-idx, 0);
+  @return scale-whitespace($scale-amount);
+}
+
+// Proportionally scales the whitespace below a heading. Does not scale smaller
+// than h4.
+@function heading-margin-bottom($heading-idx) {
+  $scale-amount: math.max(4 - $heading-idx, 0);
+  $whitespace: scale-whitespace($scale-amount);
+  $font-size: scale-font-size($scale-amount);
+  @return $whitespace / ($font-size * config.line-height()) * 1rem;
 }
