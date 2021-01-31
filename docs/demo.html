@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-  <link rel="stylesheet" href="assets/index.css">
+  <link rel="stylesheet" href="demo-assets/demo.css">
   <title>GutenType Demo</title>
 </head>
 
 <body>
   <header>
-    <a class="github" href="https://github.com/awjin/guten-type/">
-      <img src="assets/github.png" alt="Github link" />
+    <a href="https://github.com/awjin/guten-type/">
+      <img src="demo-assets/github.png" alt="Github link" />
     </a>
   </header>
 
@@ -20,7 +20,9 @@
     <h3>What is GutenType?</h3>
     <h4>What is GutenType?</h4>
     <h5>What is GutenType?</h5>
-    <h6>~ 4 min read</h6>
+    <h6>
+    Jan 31, 2021 &ndash; <a href="https://awjin.me">Awjin Ahn</a>
+    </h6>
 
     <hr>
 
@@ -63,7 +65,7 @@
     <h2>GutenType. Hear me out.</h2>
 
     <p>
-      It handles all of that minutiae for you. Calling the <code>press()</code>
+      It handles all of that minutiae for you. Calling its <code>press()</code>
       mixin assigns a base font-size to the <code>html</code> element, so that
       all other styles can be derived from <code>1rem</code>. Then, it generates
       the typography system.
@@ -126,7 +128,7 @@ main {
     </p>
 
     <figure>
-      <img class="sad-boi" src="assets/sad-boi.png" alt="Sad boi">
+      <img src="demo-assets/sad-boi.png" alt="Sad boi">
       <figcaption>Writing without GutenType: sad</figcaption>
     </figure>
 
@@ -148,8 +150,8 @@ main {
     </h4>
 
     <p>
-      You can access all config values with getters like
-      <code>guten-type.whitespace()</code> to use in your Sass code.
+      If you want to use the config values in your Sass code, you can access
+      them via getters like <code>guten-type.whitespace()</code>.
     </p>
 
     <table>
@@ -182,8 +184,8 @@ main {
         Whitespace is hard but always worth it.
       </li>
       <li>
-        If your website is text-heavy, GutenType could improve the UX
-        significantly with just two lines of code.
+        If your website is text-heavy, GutenType could strongly improve its UX
+        in just two lines of code.
         <ul>
           <li>
             As an added bonus, you'll never have to write typographic styles
@@ -198,9 +200,5 @@ main {
       I hope you find it helpful. Please file an issue or a PR for improvements.
     </p>
   </main>
-
-  <footer>
-    &copy; 2021 <a href="https://awjin.me">Awjin Ahn</a>
-  </footer>
 </body>
 </html>

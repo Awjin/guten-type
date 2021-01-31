@@ -1,0 +1,42 @@
+@use '../index' as guten-type;
+
+html,
+body {
+  margin: 0;
+  background: #fff8ea;
+}
+
+body {
+  @include guten-type.set(
+    $responsive-breakpoint: 1200px,
+  );
+  @include guten-type.press();
+}
+
+main {
+  max-width: 38rem;
+  margin: 0 auto 25vh;
+  padding: 0 1.5rem;
+
+  img {
+    border: 2px solid guten-type.color('light');
+  }
+}
+
+header {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  img {
+    height: 2.25rem;
+    margin: 0;
+    padding: 0.5rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(1.15);
+    }
+  }
+}

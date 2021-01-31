@@ -1,4 +1,4 @@
 sass \
   --no-source-map \
   --style compressed \
-  docs/index.scss:docs/assets/index.css
+  docs/demo.scss:docs/demo-assets/demo.css

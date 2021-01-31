@@ -1,6 +1,6 @@
 # GutenType
 
-*See the [demo and explanation](https://awjin.me/guten-type).*
+**[See the demo](https://awjin.me/guten-type).**
 
 GutenType is a Sass library that creates correct typography.
 
@@ -23,5 +23,3 @@ main {
   @include guten-type.press;
 }
 ```
-
-TODO: Add docs.
