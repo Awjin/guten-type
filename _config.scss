@@ -4,20 +4,8 @@
 
 @use 'sass:color';
 @use 'sass:map';
-
-// Font-stacks for headings, body text, and monospaced text.
-$_font-stack: null;
-@function font-stack($key) {
-  @if $_font-stack {
-    @return map.get($_font-stack, $key);
-  } @else {
-    @return map.get((
-      'heading': (sans-serif),
-      'body': (Georgia, serif),
-      'mono': ('Andale Mono', 'Lucida Console', monospace),
-    ), $key);
-  }
-}
+@use 'sass:math';
+@use 'sass:meta';
 
 // Base font-size of body text. Must be in px. This is auto-scaled smaller for
 // captions, code, etc.
@@ -30,16 +18,18 @@ $_font-size: null;
 // units. Must be in px.
 $_responsive-breakpoint: null;
 @function responsive-breakpoint() {
-  @return $_responsive-breakpoint;
+  @return $_responsive-breakpoint or -1px;
 }
 
 // Calculated from the static font-size() if responsive-breakpoint() is set.
-// If the breakpoint isn't set, just returns the static font-size().
+// If the breakpoint isn't set, just returns the static font-size(). Cannot be
+// configured directly through `set()`.
+//
 // "Responsive" means that the font-size increases along with the viewport size,
 // therefore supporting infinitely large viewports.
 $_responsive-font-size: null;
 @function responsive-font-size() {
-  @if responsive-breakpoint() {
+  @if responsive-breakpoint() > 0 {
     @return font-size() / responsive-breakpoint() * 100vw;
   } @else {
     @return font-size();
@@ -58,60 +48,108 @@ $_whitespace: null;
   @return $_whitespace or 1rem * line-height();
 }
 
-// The exponential rate at which headings scale up in size. Initializes h4's
-// font-size to the body's font-size * `base`. Then, sets h3's font-size to
-// h4's font-size * `ratio`, and so on. (h5 and h6 have the same size as h4.)
+// Typographic scale for heading font-size.
+//
+// `start` is the heading at which the scale starts. Since h5 and h6 are less
+// common than h1 - h4, defaults to h4.
+//
+// Let's assume h4 is the `start`.
+//   h4 font-size = body font-size * `base`.
+//
+// Then, the remaining headings scale exponentially:
+//   h3 font-size = h4 font-size * `ratio`^1
+//   h2 font-size = h4 font-size * `ratio`^2
+//   h1 font-size = h4 font-size * `ratio`^3
 $_font-size-scale: null;
-@function font-size-scale($key) {
-  @if $_font-size-scale {
-    @return map.get($_font-size-scale, $key);
-  } @else {
-    @return map.get((
-      'base': 1.33333,
-      'ratio': 1.25,
-    ), $key);
-  }
+@function font-size-scale($key: null) {
+  @return _config-map(
+    $_font-size-scale,
+    (
+    'start': 4,
+    'base': 1.33333,
+    'ratio': 1.25,
+    ),
+    $key,
+  );
 }
 
-// The exponential rate at which the whitespace above headings scale up in size.
-// Initializes h4's whitespace to the body's whitespace * `base`. Then, sets
-// h3's whitespace to h4's whitespace * `ratio`, and so on.
+// Typographic scale for heading whitespace.
+//
+// `start` is the heading at which the scale starts. Since h5 and h6 are less
+// common than h1 - h4, defaults to h4.
+//
+// Let's assume h4 is the `start`.
+//   h4 whitepace = body whitepace * `base`.
+//
+// Then, the remaining headings scale exponentially:
+//   h3 whitepace = h4 whitepace * `ratio`^1
+//   h2 whitepace = h4 whitepace * `ratio`^2
+//   h1 whitepace = h4 whitepace * `ratio`^3
 $_whitespace-scale: null;
-@function whitespace-scale($key) {
-  @if $_whitespace-scale {
-    @return map.get($_whitespace-scale, $key);
-  } @else {
-    @return map.get((
+@function whitespace-scale($key: null) {
+  @return _config-map(
+    $_whitespace-scale,
+    (
+      'start': 4,
       'base': 1.5,
       'ratio': 1.33333,
-    ), $key);
-  }
+    ),
+    $key,
+  );
+}
+
+// Font-stacks for headings, body text, and monospaced text.
+$_font-stack: null;
+@function font-stack($key: null) {
+  @return _config-map(
+    $_font-stack,
+    (
+      'heading': 'sans-serif',
+      'body': 'Georgia, serif',
+      'mono': "'Andale Mono', 'Lucida Console', monospace",
+    ),
+    $key,
+  );
 }
 
 // The text colors.
 $_color: null;
-@function color($key) {
-  @if $_color {
-    @return map.get($_color, $key);
-  } @else {
-    @return map.get((
+@function color($key: null) {
+  @return _config-map(
+    $_color,
+    (
       'normal': rgba(0, 0, 0, .95),
       'light': rgba(0, 0, 0, .6),
-      'action': rgba(10, 40, 220, 0.95),
-    ), $key);
-  }
+      'action': rgba(10, 30, 220, 0.95),
+    ),
+    $key,
+  );
 }
 
 // The appearance of items that have a border: table, pre, hr, and blockquote.
 $_border: null;
-@function border($key) {
-  @if $_border {
-    @return map.get($_border, $key);
-  } @else {
-    @return map.get((
-      'color': color('light'),
+@function border($key: null) {
+  @return _config-map(
+    $_border,
+    (
       'weight': 2px,
-    ), $key);
+      'color': color('light'),
+    ),
+    $key,
+  );
+}
+
+// Helper for getting a configuration value that is a map. Supports getting the
+// entire map, or one of its contained values.
+@function _config-map($config, $default, $keys...) {
+  @if $keys == (null,) {
+    @return $config or $default;
+  }
+
+  @if $config {
+    @return map.get($config, $keys...);
+  } @else {
+    @return map.get($default, $keys...);
   }
 }
 
@@ -136,45 +174,130 @@ $_border: null;
 //   ```
 // TODO: Add guard statements for all values that require unit/unitless.
 @mixin set(
-  $font-stack: null,
-  $color: null,
   $font-size: null,
   $responsive-breakpoint: null,
-  $responsive-font-size: null,
-  $font-size-scale: null,
   $line-height: null,
   $whitespace: null,
+  $font-size-scale: null,
   $whitespace-scale: null,
+  $font-stack: null,
+  $color: null,
   $border: null,
 ) {
-  @if $font-stack {
-    $_font-stack: $font-stack !global;
-  }
   @if $font-size {
+    @include _validate-number(font-size(), $font-size, '$font-size');
     $_font-size: $font-size !global;
   }
+
   @if $responsive-breakpoint {
+    @include _validate-number(
+      responsive-breakpoint(),
+      $responsive-breakpoint,
+      'responsive-breakpoint');
     $_responsive-breakpoint: $responsive-breakpoint !global;
   }
-  @if $responsive-font-size {
-    $_responsive-font-size: $responsive-font-size !global;
-  }
+
   @if $line-height {
+    @include _validate-number(line-height(), $line-height, '$line-height');
     $_line-height: $line-height !global;
   }
+
   @if $whitespace {
+    @include _validate-number(whitespace(), $whitespace, '$whitespace');
     $_whitespace: $whitespace !global;
   }
+
   @if $font-size-scale {
+    @include _validate-map(
+      font-size-scale(),
+      $font-size-scale,
+      '$font-size-scale');
     $_font-size-scale: $font-size-scale !global;
   }
+
   @if $whitespace-scale {
+    @include _validate-map(
+      whitespace-scale(),
+      $whitespace-scale,
+      '$whitespace-scale');
     $_whitespace-scale: $whitespace-scale !global;
   }
+
+  @if $font-stack {
+    @include _validate-map(font-stack(), $font-stack, '$font-stack');
+    $_font-stack: $font-stack !global;
+  }
+
   @if $color {
+    @include _validate-map(color(), $color, '$color');
     $_color: $color !global;
   }
+
   @if $border {
+    @include _validate-map(border(), $border, '$border');
     $_border: $border !global;
   }
+}
+
+@mixin _validate-number(
+  $default,
+  $override,
+  $name,
+) {
+  @include _validate-type($default, $override, $name);
+
+  $default-unit: math.unit($default);
+  @if math.unit($override) != $default-unit {
+    @if $default-unit == '' {
+      @include _error('expected #{$name} to be unitless.');
+    } @else {
+      @include _error('expected #{$name} be in #{$default-unit}.');
+    }
+  }
+}
+
+@mixin _validate-map(
+  $default,
+  $override,
+  $name,
+) {
+  @include _validate-type($default, $override, $name);
+
+  @each $key in map.keys($default) {
+    @if not map.has-key($override, $key) {
+      @include _error('expected #{$name} to have a value for #{$key}.');
+    }
+
+    $default-value: map.get($default, $key);
+    $override-value: map.get($override, $key);
+
+    @include _validate-type(
+      $default-value,
+      $override-value,
+      '#{$name}.#{$key}',
+    );
+
+    @if meta.type-of($default-value) == 'number' {
+      @include _validate-number(
+        $default-value,
+        $override-value,
+        '#{$name}.#{$key}',
+      );
+    }
+  }
+}
+
+// TODO: Improve rudimentary type checking.
+@mixin _validate-type(
+  $default,
+  $override,
+  $name,
+) {
+  @if meta.type-of($override) != meta.type-of($default) {
+    @include _error('expected #{$name} to be a #{meta.type-of($default)}.');
+  }
+}
+
+@mixin _error($message) {
+  @error 'guten-type.set(): #{$message}';
 }

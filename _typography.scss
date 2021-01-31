@@ -1,8 +1,11 @@
 @use 'sass:math';
+@use 'sass:string';
 @use 'config';
 @use 'utils';
 
-// Generates typographic styles based on the values of `config`.
+// Assigns the `config.font-size()` to the html element, so that all other
+// styles can be derived from 1rem. Then, generates correct typographic styles
+// based on the values of `config`.
 //
 // If you want to override the default `config` values, do that first before
 // calling this mixin. For example:
@@ -36,7 +39,7 @@
   }
 
   line-height: config.line-height();
-  font-family: config.font-stack('body');
+  font-family: string.unquote(config.font-stack('body'));
   color: config.color('normal');
 
   h1 {
@@ -56,13 +59,11 @@
   }
 
   h5 {
-    @include _heading-style(5);
-    font-size: 1rem;
+    @include _heading-style(5, 1rem);
   }
 
   h6 {
-    @include _heading-style(6);
-    font-size: $font-size-small;
+    @include _heading-style(6, $font-size-small);
     font-style: italic;
   }
 
@@ -129,7 +130,7 @@
   }
 
   code {
-    font-family: config.font-stack('mono');
+    font-family: string.unquote(config.font-stack('mono'));
     font-size: $font-size-small;
   }
 
@@ -142,7 +143,10 @@
     margin: utils.non-text-whitespace() 0;
   }
 
-  // Don't apply non-text-whitespace underneath headers.
+  // Since headers need to specify the whitespace underneath them as dictated by
+  // the typography scale, we shouldn't collapse their margin-bottom into a
+  // non-text-whitespace, which could be significantly larger. Instead, start
+  // with the header's whitespace, then add a simulated line-height.
   @for $i from 1 to 7 {
     h#{$i} {
       & + figure,
@@ -150,7 +154,7 @@
       & + iframe,
       & + table,
       & + pre {
-        margin-top: utils.heading-margin-bottom($i) + 0.5rem;
+        margin-top: utils.heading-whitespace-bottom($i) + 0.5rem;
       }
     }
   }
@@ -222,10 +226,17 @@
   }
 }
 
-@mixin _heading-style($heading-idx) {
-  margin: utils.heading-margin-top($heading-idx) 0 utils.heading-margin-bottom($heading-idx);
+// Shared styles for headings, based on the typographic scale.
+@mixin _heading-style(
+  $heading-idx,
+  $font-size: utils.heading-font-size($heading-idx)
+) {
+  $whitespace-top: utils.heading-whitespace-top($heading-idx);
+  $whitespace-bottom: utils.heading-whitespace-bottom($heading-idx);
+
+  margin: $whitespace-top 0 $whitespace-bottom;
   line-height: 0.9 * config.line-height();
-  font-size: utils.heading-font-size($heading-idx);
-  font-family: config.font-stack('heading');
+  font-size: $font-size;
+  font-family: string.unquote(config.font-stack('heading'));
   font-weight: normal;
 }
