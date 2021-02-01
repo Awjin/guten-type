@@ -1,31 +1,21 @@
-@use 'sass:math';
 @use 'sass:string';
 @use 'config';
 @use 'utils';
 
-// Assigns the `config.font-size()` to the html element, so that all other
-// styles can be derived from 1rem. Then, generates correct typographic styles
-// based on the values of `config`.
+// Generates styles for a complete and correct typography system.
 //
-// If you want to override the default `config` values, do that first before
-// calling this mixin. For example:
+// This assigns config.font-size() to the html element, and then derives all
+// other styles from a baseline of 1rem.
 //
 //   ```
 //   @use 'guten-type';
 //
-//   .your-div {
-//     @include guten-type.set(
-//       $font-size: 18px,
-//       $font-stack: (
-//         'heading': ('PT Serif', serif),
-//         'body': ('PT Sans', sans-serif),
-//         'mono': ('Roboto Mono', monospace),
-//       )
-//     );
-//
-//     @include guten-type.press();
+//   main {
+//     @include guten-type.set();
 //   }
 //   ```
+//
+// See `_config.scss` for details on how to customize the default values.
 @mixin press() {
   $font-size-small: 0.9rem;
   $border: config.border('weight') solid config.border('color');
@@ -33,13 +23,16 @@
   // The font-size needs to be set on `html` so that we can use rem units.
   @at-root html {
     font-size: config.font-size();
-    @media all and (min-width: config.responsive-breakpoint()){
-      font-size: config.responsive-font-size();
+    // Only switch to responsive font-size if the responsive breakpoint is set.
+    @if config.responsive-breakpoint() > 0 {
+      @media all and (min-width: config.responsive-breakpoint()){
+        font-size: config.font-size() / config.responsive-breakpoint() * 100vw;
+      }
     }
   }
 
   line-height: config.line-height();
-  font-family: string.unquote(config.font-stack('body'));
+  font-family: config.font-stack('body');
   color: config.color('normal');
 
   h1 {
@@ -130,7 +123,7 @@
   }
 
   code {
-    font-family: string.unquote(config.font-stack('mono'));
+    font-family: config.font-stack('mono');
     font-size: $font-size-small;
   }
 
@@ -237,6 +230,6 @@
   margin: $whitespace-top 0 $whitespace-bottom;
   line-height: 0.9 * config.line-height();
   font-size: $font-size;
-  font-family: string.unquote(config.font-stack('heading'));
+  font-family: config.font-stack('heading');
   font-weight: normal;
 }

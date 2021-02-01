@@ -1,0 +1,318 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
+$_font-size: null;
+$_responsive-breakpoint: null;
+$_line-height: null;
+$_whitespace: null;
+$_font-size-scale: null;
+$_whitespace-scale: null;
+$_font-stack: null;
+$_color: null;
+$_border: null;
+
+// Call this mixin first if you want to override GutenType's default config.
+//
+//   ```
+//   @use 'guten-type';
+//
+//   main {
+//     @include guten-type.set(
+//       $font-size: 18px,
+//       $font-stack: (
+//         'heading': ('PT Serif', serif),
+//         'body': ('PT Sans', sans-serif),
+//         'mono': ('Roboto Mono', monospace),
+//       )
+//     );
+//
+//     @include guten-type.press();
+//   }
+//   ```
+//
+// All config values are exposed through their getters. For example:
+//
+//   ```
+//   @use 'guten-type';
+//
+//   main {
+//     margin: guten-type.whitespace() auto;
+//   }
+//   ```
+@mixin set(
+  // Base font-size of body text. Must be in px. This is auto-scaled smaller
+  // for captions, code, etc.
+  //
+  // Default: 16px
+  $font-size: null,
+
+  // The min breakpoint at which font-size will switch from static to responsive
+  // units (i.e. the font-size increases along with the viewport size, therefore
+  // supporting infinitely large viewports). Must be in px.
+  //
+  // Default: -1px
+  $responsive-breakpoint: null,
+
+  // Line-height of body text. This is auto-scaled smaller for headings.
+  //
+  // Default: 1.5
+  $line-height: null,
+
+  // The size of line breaks. Must be in rem.
+  //
+  // Default: 1rem * $font-size
+  $whitespace: null,
+
+  // Typographic scale for heading font-size.
+  //
+  // `start` is the heading at which the scale starts. Since h5 and h6 are less
+  // common than h1 - h4, defaults to h4.
+  //
+  // Assuming h4 is the `start`:
+  // h4 font-size = body font-size * `base`.
+  //
+  // Then, the remaining headings scale exponentially:
+  // h3 font-size = h4 font-size * `ratio`^1
+  // h2 font-size = h4 font-size * `ratio`^2
+  // h1 font-size = h4 font-size * `ratio`^3
+  //
+  // Default: (
+  //   'start': 4,
+  //   'base': 1.33333,
+  //   'ratio': 1.25,
+  // )
+  $font-size-scale: null,
+
+  // Same concept as $font-size-scale.
+  //
+  // Default: (
+  //   'start': 4,
+  //   'base': 1.5,
+  //   'ratio': 1.33333,
+  // )
+  $whitespace-scale: null,
+
+  // Font-stack for headings, body text, and monospaced text.
+  //
+  // Default: (
+  //   'heading': (sans-serif,),
+  //   'body': (Georgia, serif),
+  //   'mono': ('Andale Mono', 'Lucida Console', monospace),
+  // )
+  $font-stack: null,
+
+  // The text colors.
+  //
+  // Default: (
+  //   'normal': rgba(0, 0, 0, 0.95),
+  //   'light': rgba(0, 0, 0, 0.6),
+  //   'action': rgba(10, 30, 220, 0.95),
+  // )
+  $color: null,
+
+  // The appearance of items that have a border: table, pre, hr, and blockquote.
+  //
+  // Default: (
+  //   'weight': 2px,
+  //   'color': color('light'),
+  // )
+  $border: null,
+) {
+  @if $font-size {
+    @include _expect-same-unit(font-size(), $font-size, '$font-size');
+    $_font-size: $font-size !global;
+  }
+
+  @if $responsive-breakpoint {
+    @include _expect-same-unit(
+      responsive-breakpoint(),
+      $responsive-breakpoint,
+      'responsive-breakpoint'
+    );
+    $_responsive-breakpoint: $responsive-breakpoint !global;
+  }
+
+  @if $line-height {
+    @include _expect-same-unit(
+      line-height(),
+      $line-height,
+      '$line-height'
+    );
+    $_line-height: $line-height !global;
+  }
+
+  @if $whitespace {
+    @include _expect-same-unit(whitespace(), $whitespace, '$whitespace');
+    $_whitespace: $whitespace !global;
+  }
+
+  @if $font-size-scale {
+    @include _expect-same-keys(
+      font-size-scale(),
+      $font-size-scale,
+      '$font-size-scale'
+    );
+    $_font-size-scale: $font-size-scale !global;
+  }
+
+  @if $whitespace-scale {
+    @include _expect-same-keys(
+      whitespace-scale(),
+      $whitespace-scale,
+      '$whitespace-scale'
+    );
+    $_whitespace-scale: $whitespace-scale !global;
+  }
+
+  @if $font-stack {
+    @include _expect-same-keys(font-stack(), $font-stack, '$font-stack');
+    $_font-stack: $font-stack !global;
+  }
+
+  @if $color {
+    @include _expect-same-keys(color(), $color, '$color');
+    $_color: $color !global;
+  }
+
+  @if $border {
+    @include _expect-same-keys(border(), $border, '$border');
+    $_border: $border !global;
+  }
+}
+
+// Validate that the given numbers have the same unit.
+@mixin _expect-same-unit($var1, $var2, $var2Name) {
+  @include _expect-same-type($var1, $var2, $var2Name);
+  $unit1: math.unit($var1);
+  $unit2: math.unit($var2);
+  @if $unit1 != $unit2 {
+    @if $unit1 == '' {
+      @include error('expected #{$var2Name} to be unitless.');
+    } @else {
+      @include error("expected #{$var2Name}'s units to be #{$unit1}.");
+    }
+  }
+}
+
+// Validate that the given maps have the same keys.
+@mixin _expect-same-keys($var1, $var2, $var2Name) {
+  @include _expect-same-type($var1, $var2, $var2Name);
+
+  @each $key in map.keys($var1) {
+    @if not map.has-key($var2, $key) {
+      @include _error('expected #{$var2Name} to have a value for #{$key}.');
+    }
+
+    $value1: map.get($var1, $key);
+    $value2: map.get($var2, $key);
+
+    @include _expect-same-type(
+      $value1,
+      $value2,
+      '#{$var2Name}.#{$key}',
+    );
+
+    @if meta.type-of($value1) == 'number' {
+      @include _expect-same-unit(
+        $value1,
+        $value2,
+        '#{$var2Name}.#{$key}',
+      );
+    }
+  }
+}
+
+// Validate that the given vars are the same type.
+@mixin _expect-same-type($var1, $var2, $var2Name) {
+  $type1: meta.type-of($var1);
+  $type2: meta.type-of($var2);
+  @if $type1 != $type2 {
+    @include _error('expected #{$var2Name} to be a #{$type1}.');
+  }
+}
+
+// Throws a formatted error message.
+@mixin _error($message) {
+  @error 'guten-type.set(): #{$message}';
+}
+
+@function font-size() {
+  @return $_font-size or 16px;
+}
+
+@function responsive-breakpoint() {
+  @return $_responsive-breakpoint or -1px;
+}
+
+@function line-height() {
+  @return $_line-height or 1.5;
+}
+
+@function whitespace() {
+  @return $_whitespace or 1rem * line-height();
+}
+
+@function font-size-scale($key: null) {
+  $map: $_font-size-scale or (
+    'start': 4,
+    'base': 1.33333,
+    'ratio': 1.25,
+  );
+  @if ($key) {
+    @return map.get($map, $key);
+  } @else {
+    @return $map;
+  }
+}
+
+@function whitespace-scale($key: null) {
+  $map: $_whitespace-scale or (
+    'start': 4,
+    'base': 1.5,
+    'ratio': 1.33333,
+  );
+  @if ($key) {
+    @return map.get($map, $key);
+  } @else {
+    @return $map;
+  }
+}
+
+@function font-stack($key: null) {
+  $map: $_font-stack or (
+    'heading': (sans-serif,),
+    'body': (Georgia, serif),
+    'mono': ('Andale Mono', 'Lucida Console', monospace),
+  );
+  @if ($key) {
+    @return map.get($map, $key);
+  } @else {
+    @return $map;
+  }
+}
+
+@function color($key: null) {
+  $map: $_color or (
+    'normal': rgba(0, 0, 0, 0.95),
+    'light': rgba(0, 0, 0, 0.6),
+    'action': rgba(10, 30, 220, 0.95),
+  );
+  @if ($key) {
+    @return map.get($map, $key);
+  } @else {
+    @return $map;
+  }
+}
+
+@function border($key: null) {
+  $map: $_border or (
+    'weight': 2px,
+    'color': color('light'),
+  );
+  @if ($key) {
+    @return map.get($map, $key);
+  } @else {
+    @return $map;
+  }
+}
