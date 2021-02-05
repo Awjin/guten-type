@@ -1,6 +1,6 @@
 {
   "name": "guten-type",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sass library that creates correct typography.",
   "main": "index.scss",
   "repository": {
@@ -17,5 +17,5 @@
   "bugs": {
     "url": "https://github.com/awjin/guten-type/issues"
   },
-  "homepage": "https://github.com/awjin/guten-type#readme"
+  "homepage": "https://awjin.me/guten-type"
 }
