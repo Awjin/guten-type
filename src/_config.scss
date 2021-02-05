@@ -41,8 +41,8 @@ $_border: null;
 //   }
 //   ```
 @mixin set(
-  // Base font-size of body text. Must be in px. This is auto-scaled smaller
-  // for captions, code, etc.
+  // The body text's font-size. Must be in px. This is auto-scaled smaller for
+  // captions, code, etc.
   //
   // Default: 16px
   $font-size: null,
@@ -54,17 +54,17 @@ $_border: null;
   // Default: -1px
   $responsive-breakpoint: null,
 
-  // Line-height of body text. This is auto-scaled smaller for headings.
+  // The body text's line-height. This is auto-scaled smaller for headings.
   //
   // Default: 1.5
   $line-height: null,
 
   // The size of line breaks. Must be in rem.
   //
-  // Default: 1rem * $font-size
+  // Default: 1rem * $line-height
   $whitespace: null,
 
-  // Typographic scale for heading font-size.
+  // The typographic scale for heading font-size.
   //
   // `start` is the heading at which the scale starts. Since h5 and h6 are less
   // common than h1 - h4, defaults to h4.
@@ -93,7 +93,7 @@ $_border: null;
   // )
   $whitespace-scale: null,
 
-  // Font-stack for headings, body text, and monospaced text.
+  // The font-stack for headings, body text, and monospaced text.
   //
   // Default: (
   //   'heading': (sans-serif,),
@@ -102,7 +102,9 @@ $_border: null;
   // )
   $font-stack: null,
 
-  // The text colors.
+  // The text colors. `normal` is used for the body and headings. `light` is
+  // used selectively for auxiliary text, like captions. `action` is used for
+  // links.
   //
   // Default: (
   //   'normal': rgba(0, 0, 0, 0.95),
