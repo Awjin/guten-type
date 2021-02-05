@@ -1,6 +1,6 @@
 {
   "name": "guten-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sass library that creates correct typography.",
   "main": "index.scss",
   "repository": {
