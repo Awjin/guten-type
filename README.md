@@ -1,6 +1,6 @@
 # GutenType
 
-**[See the demo](https://awjin.me/guten-type).**
+## [See the demo](https://awjin.me/guten-type)
 
 GutenType is a Sass library that creates correct typography. Give it base values
 like `font-size`, and it automatically generates styles for you.
@@ -8,7 +8,7 @@ like `font-size`, and it automatically generates styles for you.
 ## `press()`
 
 The `press()` mixin assigns a base font-size to the html element, so that all
-other styles can be derived from 1rem. Then, it generates the typography system:
+other styles can be derived from 1rem. Then, it generates the typography system.
 
 ```scss
 @use 'guten-type';
@@ -20,7 +20,7 @@ main {
 
 ## `set()`
 
-The `set()` mixin allows you to customize the default styles:
+The `set()` mixin allows you to customize the default styles.
 
 ```scss
 @use 'guten-type';
@@ -42,13 +42,15 @@ main {
 }
 ```
 
-### `$font-size`
+These are the options you can pass to `set()`:
+
+#### `$font-size`
 
 - The body text's font-size. Must be in px.
 
 - Default: `16px`
 
-### `$responsive-breakpoint`
+#### `$responsive-breakpoint`
 
 - The min breakpoint at which font-size will switch from static to responsive
 units (i.e. the font-size increases along with the viewport size, therefore
@@ -56,19 +58,19 @@ supporting infinitely large viewports). Must be in px.
 
 - Default: `-1px` (negative values are ignored)
 
-### `$line-height`
+#### `$line-height`
 
 - The body text's line-height.
 
 - Default: `1.5`
 
-### `$whitespace`
+#### `$whitespace`
 
 - The size of line breaks. Must be in rem.
 
 - Default: `1rem * $line-height`
 
-### `$font-size-scale`
+#### `$font-size-scale`
 
 - The typographic scale for heading font-size.
 
@@ -92,7 +94,7 @@ common than h1 - h4, defaults to h4.
   )
   ```
 
-### `$whitespace-scale`
+#### `$whitespace-scale`
 
 - Same concept as $font-size-scale.
 
@@ -105,7 +107,7 @@ common than h1 - h4, defaults to h4.
   )
   ```
 
-### `$font-stack`
+#### `$font-stack`
 
 - The font-stack for headings, body text, and monospaced text.
 
@@ -118,7 +120,7 @@ common than h1 - h4, defaults to h4.
   )
   ```
 
-### `$color`
+#### `$color`
 
 - The text colors. `normal` is used for the body and headings. `light` is used
 selectively for auxiliary text, like captions. `action` is used for links.
@@ -132,7 +134,7 @@ selectively for auxiliary text, like captions. `action` is used for links.
   )
   ```
 
-### `$border`
+#### `$border`
 
 - The appearance of items that have a border: table, pre, hr, and blockquote.
 
