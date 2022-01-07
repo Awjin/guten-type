@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:string";
 @use "config";
 @use "utils";
@@ -26,7 +27,8 @@
     // Only switch to responsive font-size if the responsive breakpoint is set.
     @if config.responsive-breakpoint() > 0 {
       @media all and (min-width: config.responsive-breakpoint()) {
-        font-size: config.font-size() / config.responsive-breakpoint() * 100vw;
+        font-size: math.div(config.font-size(), config.responsive-breakpoint()) *
+          100vw;
       }
     }
   }

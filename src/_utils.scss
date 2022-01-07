@@ -28,7 +28,7 @@
 @function heading-whitespace-bottom($heading-idx) {
   $font-size: heading-font-size($heading-idx);
   $margin-top: heading-whitespace-top($heading-idx);
-  @return ($margin-top * 1rem) / ($font-size * config.line-height());
+  @return math.div($margin-top * 1rem, $font-size * config.line-height());
 }
 
 // Given the base and ratio defined in `config.font-size-scale()`, scales the
