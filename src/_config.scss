@@ -1,6 +1,6 @@
-@use 'sass:map';
-@use 'sass:math';
-@use 'sass:meta';
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
 
 $_font-size: null;
 $_responsive-breakpoint: null;
@@ -46,24 +46,20 @@ $_border: null;
   //
   // Default: 16px
   $font-size: null,
-
   // The min breakpoint at which font-size will switch from static to responsive
   // units (i.e. the font-size increases along with the viewport size, therefore
   // supporting infinitely large viewports). Must be in px.
   //
   // Default: -1px
   $responsive-breakpoint: null,
-
   // The body text's line-height. This is auto-scaled smaller for headings.
   //
   // Default: 1.5
   $line-height: null,
-
   // The size of line breaks. Must be in rem.
   //
   // Default: 1rem * $line-height
   $whitespace: null,
-
   // The typographic scale for heading font-size.
   //
   // `start` is the heading at which the scale starts. Since h5 and h6 are less
@@ -83,7 +79,6 @@ $_border: null;
   //   'ratio': 1.25,
   // )
   $font-size-scale: null,
-
   // Same concept as $font-size-scale.
   //
   // Default: (
@@ -92,7 +87,6 @@ $_border: null;
   //   'ratio': 1.33333,
   // )
   $whitespace-scale: null,
-
   // The font-stack for headings, body text, and monospaced text.
   //
   // Default: (
@@ -101,7 +95,6 @@ $_border: null;
   //   'mono': ('Andale Mono', 'Lucida Console', monospace),
   // )
   $font-stack: null,
-
   // The text colors. `normal` is used for the body and headings. `light` is
   // used selectively for auxiliary text, like captions. `action` is used for
   // links.
@@ -112,17 +105,16 @@ $_border: null;
   //   'action': rgba(10, 30, 220, 0.95),
   // )
   $color: null,
-
   // The appearance of items that have a border: table, pre, hr, and blockquote.
   //
   // Default: (
   //   'weight': 2px,
   //   'color': color('light'),
   // )
-  $border: null,
+  $border: null
 ) {
   @if $font-size {
-    @include _expect-same-unit(font-size(), $font-size, '$font-size');
+    @include _expect-same-unit(font-size(), $font-size, "$font-size");
     $_font-size: $font-size !global;
   }
 
@@ -130,22 +122,18 @@ $_border: null;
     @include _expect-same-unit(
       responsive-breakpoint(),
       $responsive-breakpoint,
-      'responsive-breakpoint'
+      "responsive-breakpoint"
     );
     $_responsive-breakpoint: $responsive-breakpoint !global;
   }
 
   @if $line-height {
-    @include _expect-same-unit(
-      line-height(),
-      $line-height,
-      '$line-height'
-    );
+    @include _expect-same-unit(line-height(), $line-height, "$line-height");
     $_line-height: $line-height !global;
   }
 
   @if $whitespace {
-    @include _expect-same-unit(whitespace(), $whitespace, '$whitespace');
+    @include _expect-same-unit(whitespace(), $whitespace, "$whitespace");
     $_whitespace: $whitespace !global;
   }
 
@@ -153,7 +141,7 @@ $_border: null;
     @include _expect-same-keys(
       font-size-scale(),
       $font-size-scale,
-      '$font-size-scale'
+      "$font-size-scale"
     );
     $_font-size-scale: $font-size-scale !global;
   }
@@ -162,23 +150,23 @@ $_border: null;
     @include _expect-same-keys(
       whitespace-scale(),
       $whitespace-scale,
-      '$whitespace-scale'
+      "$whitespace-scale"
     );
     $_whitespace-scale: $whitespace-scale !global;
   }
 
   @if $font-stack {
-    @include _expect-same-keys(font-stack(), $font-stack, '$font-stack');
+    @include _expect-same-keys(font-stack(), $font-stack, "$font-stack");
     $_font-stack: $font-stack !global;
   }
 
   @if $color {
-    @include _expect-same-keys(color(), $color, '$color');
+    @include _expect-same-keys(color(), $color, "$color");
     $_color: $color !global;
   }
 
   @if $border {
-    @include _expect-same-keys(border(), $border, '$border');
+    @include _expect-same-keys(border(), $border, "$border");
     $_border: $border !global;
   }
 }
@@ -189,8 +177,8 @@ $_border: null;
   $unit1: math.unit($var1);
   $unit2: math.unit($var2);
   @if $unit1 != $unit2 {
-    @if $unit1 == '' {
-      @include error('expected #{$var2Name} to be unitless.');
+    @if $unit1 == "" {
+      @include error("expected #{$var2Name} to be unitless.");
     } @else {
       @include error("expected #{$var2Name}'s units to be #{$unit1}.");
     }
@@ -203,24 +191,16 @@ $_border: null;
 
   @each $key in map.keys($var1) {
     @if not map.has-key($var2, $key) {
-      @include _error('expected #{$var2Name} to have a value for #{$key}.');
+      @include _error("expected #{$var2Name} to have a value for #{$key}.");
     }
 
     $value1: map.get($var1, $key);
     $value2: map.get($var2, $key);
 
-    @include _expect-same-type(
-      $value1,
-      $value2,
-      '#{$var2Name}.#{$key}',
-    );
+    @include _expect-same-type($value1, $value2, "#{$var2Name}.#{$key}");
 
-    @if meta.type-of($value1) == 'number' {
-      @include _expect-same-unit(
-        $value1,
-        $value2,
-        '#{$var2Name}.#{$key}',
-      );
+    @if meta.type-of($value1) == "number" {
+      @include _expect-same-unit($value1, $value2, "#{$var2Name}.#{$key}");
     }
   }
 }
@@ -230,7 +210,7 @@ $_border: null;
   $type1: meta.type-of($var1);
   $type2: meta.type-of($var2);
   @if $type1 != $type2 {
-    @include _error('expected #{$var2Name} to be a #{$type1}.');
+    @include _error("expected #{$var2Name} to be a #{$type1}.");
   }
 }
 
@@ -256,11 +236,12 @@ $_border: null;
 }
 
 @function font-size-scale($key: null) {
-  $map: $_font-size-scale or (
-    'start': 4,
-    'base': 1.33333,
-    'ratio': 1.25,
-  );
+  $map: $_font-size-scale or
+    (
+      "start": 4,
+      "base": 1.33333,
+      "ratio": 1.25,
+    );
   @if ($key) {
     @return map.get($map, $key);
   } @else {
@@ -269,11 +250,12 @@ $_border: null;
 }
 
 @function whitespace-scale($key: null) {
-  $map: $_whitespace-scale or (
-    'start': 4,
-    'base': 1.5,
-    'ratio': 1.33333,
-  );
+  $map: $_whitespace-scale or
+    (
+      "start": 4,
+      "base": 1.5,
+      "ratio": 1.33333,
+    );
   @if ($key) {
     @return map.get($map, $key);
   } @else {
@@ -282,11 +264,21 @@ $_border: null;
 }
 
 @function font-stack($key: null) {
-  $map: $_font-stack or (
-    'heading': (sans-serif,),
-    'body': (Georgia, serif),
-    'mono': ('Andale Mono', 'Lucida Console', monospace),
-  );
+  $map: $_font-stack or
+    (
+      "heading": (
+        sans-serif,
+      ),
+      "body": (
+        Georgia,
+        serif,
+      ),
+      "mono": (
+        "Andale Mono",
+        "Lucida Console",
+        monospace,
+      ),
+    );
   @if ($key) {
     @return map.get($map, $key);
   } @else {
@@ -295,11 +287,12 @@ $_border: null;
 }
 
 @function color($key: null) {
-  $map: $_color or (
-    'normal': rgba(0, 0, 0, 0.95),
-    'light': rgba(0, 0, 0, 0.6),
-    'action': rgba(10, 30, 220, 0.95),
-  );
+  $map: $_color or
+    (
+      "normal": rgba(0, 0, 0, 0.95),
+      "light": rgba(0, 0, 0, 0.6),
+      "action": rgba(10, 30, 220, 0.95),
+    );
   @if ($key) {
     @return map.get($map, $key);
   } @else {
@@ -308,10 +301,11 @@ $_border: null;
 }
 
 @function border($key: null) {
-  $map: $_border or (
-    'weight': 2px,
-    'color': color('light'),
-  );
+  $map: $_border or
+    (
+      "weight": 2px,
+      "color": color("light"),
+    );
   @if ($key) {
     @return map.get($map, $key);
   } @else {

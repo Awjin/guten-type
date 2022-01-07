@@ -1,6 +1,6 @@
-@use 'sass:string';
-@use 'config';
-@use 'utils';
+@use "sass:string";
+@use "config";
+@use "utils";
 
 // Generates styles for a complete and correct typography system.
 //
@@ -18,22 +18,22 @@
 // See `_config.scss` for details on how to customize the default values.
 @mixin press() {
   $font-size-small: 0.9rem;
-  $border: config.border('weight') solid config.border('color');
+  $border: config.border("weight") solid config.border("color");
 
   // The font-size needs to be set on `html` so that we can use rem units.
   @at-root html {
     font-size: config.font-size();
     // Only switch to responsive font-size if the responsive breakpoint is set.
     @if config.responsive-breakpoint() > 0 {
-      @media all and (min-width: config.responsive-breakpoint()){
+      @media all and (min-width: config.responsive-breakpoint()) {
         font-size: config.font-size() / config.responsive-breakpoint() * 100vw;
       }
     }
   }
 
   line-height: config.line-height();
-  font-family: config.font-stack('body');
-  color: config.color('normal');
+  font-family: config.font-stack("body");
+  color: config.color("normal");
 
   h1 {
     @include _heading-style(1);
@@ -96,7 +96,7 @@
 
   a {
     background-color: transparent;
-    color: config.color('action');
+    color: config.color("action");
     text-decoration: none;
 
     &:hover,
@@ -123,7 +123,7 @@
   }
 
   code {
-    font-family: config.font-stack('mono');
+    font-family: config.font-stack("mono");
     font-size: $font-size-small;
   }
 
@@ -159,11 +159,11 @@
 
   figcaption,
   caption {
-    margin-bottom: -0.5rem;  // Shrink the non-text-whitespace of the parent.
+    margin-bottom: -0.5rem; // Shrink the non-text-whitespace of the parent.
     text-align: left;
     font-size: $font-size-small;
     font-style: italic;
-    color: config.color('light');
+    color: config.color("light");
   }
 
   figcaption {
@@ -203,10 +203,10 @@
   hr {
     box-sizing: content-box;
     width: 100%;
-    height: config.border('weight');
+    height: config.border("weight");
     margin: utils.non-text-whitespace() 0;
     border: none;
-    background: config.border('color');
+    background: config.border("color");
     overflow: visible;
   }
 
@@ -215,7 +215,7 @@
     border-left: $border;
     padding-left: 0.75rem;
     font-style: italic;
-    color: config.color('light');
+    color: config.color("light");
   }
 }
 
@@ -230,6 +230,6 @@
   margin: $whitespace-top 0 $whitespace-bottom;
   line-height: 0.9 * config.line-height();
   font-size: $font-size;
-  font-family: config.font-stack('heading');
+  font-family: config.font-stack("heading");
   font-weight: normal;
 }

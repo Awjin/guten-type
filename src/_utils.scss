@@ -2,15 +2,15 @@
 // A collection of helper methods.
 ////////////////////////////////////////////////////////////////////////////////
 
-@use 'sass:math';
-@use 'config';
+@use "sass:math";
+@use "config";
 
 // Given the base and ratio defined in `config.font-size-scale()`, scales the
 // font-size exponentially: font-size = base * (ratio ^ exponent). This can be
 // used to create a proportionally increasing series of font-sizes. Headings
 // smaller than the scale's start get the same value as the scale's start.
 @function heading-font-size($heading-idx) {
-  $scale-amount: math.max(config.font-size-scale('start') - $heading-idx, 0);
+  $scale-amount: math.max(config.font-size-scale("start") - $heading-idx, 0);
   @return scale-font-size($scale-amount);
 }
 
@@ -19,7 +19,7 @@
 // used to create a proportionally increasing series of font-sizes. Headings
 // smaller than the scale's start get the same value as the scale's start.
 @function heading-whitespace-top($heading-idx) {
-  $scale-amount: math.max(config.whitespace-scale('start') - $heading-idx, 0);
+  $scale-amount: math.max(config.whitespace-scale("start") - $heading-idx, 0);
   @return scale-whitespace($scale-amount);
 }
 
@@ -39,8 +39,8 @@
     @error 'Negative scaling is not supported.';
   }
   $start: 1rem;
-  $base: config.font-size-scale('base');
-  $ratio: config.font-size-scale('ratio');
+  $base: config.font-size-scale("base");
+  $ratio: config.font-size-scale("ratio");
   @return $start * $base * math.pow($ratio, $exponent);
 }
 
@@ -52,8 +52,8 @@
     @error 'Negative scaling is not supported.';
   }
   $start: config.whitespace();
-  $base: config.whitespace-scale('base');
-  $ratio: config.whitespace-scale('ratio');
+  $base: config.whitespace-scale("base");
+  $ratio: config.whitespace-scale("ratio");
   @return $start * $base * math.pow($ratio, $exponent);
 }
 
