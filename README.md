@@ -2,6 +2,8 @@
 
 ### [See the demo](https://awjin.me/guten-type)
 
+### [Install via npm](https://npmjs.org/guten-type)
+
 GutenType is a Sass library that creates correct typography. Give it base values
 like `font-size`, and it automatically generates styles for you.
 
