@@ -51,14 +51,14 @@ $_whitespace-scale: null;
  * @param $font-size-scale
  *  - The typographic scale for heading font-size.
  *
- *    Given `start` == 4, the scale starts at h4. h4's font-size gets calculated
- *    as follows:
- *    h4 font-size = $font-size * `base`.
+ *    E.g. given a `start` value of 4, the scale starts at h4. h4's font-size
+ *    gets calculated as follows:
+ *    h4-font-size = $font-size * `base`.
  *
  *    Then, the remaining headings scale exponentially:
- *    h3 font-size = h4 font-size * `ratio`^1
- *    h2 font-size = h4 font-size * `ratio`^2
- *    h1 font-size = h4 font-size * `ratio`^3
+ *    h3-font-size = h4-font-size * `ratio`^1
+ *    h2-font-size = h4-font-size * `ratio`^2
+ *    h1-font-size = h4-font-size * `ratio`^3
  *
  * @param $whitespace-scale
  *   - Same concept as $font-size-scale.

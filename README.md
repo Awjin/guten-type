@@ -1,9 +1,6 @@
 # GutenType
 
-**[See the demo](https://awjin.me/guten-type)**
-
-GutenType is a Sass library that creates correct typography. Give it base values
-like `font-size`, and it automatically generates styles for you.
+GutenType is a Sass library that generates correct typographic styles. **[See the demo.](https://awjin.me/guten-type)**
 
 ## Usage
 
@@ -114,16 +111,17 @@ article {
 
 - The typographic scale for heading font-size.
 
-  Given `start` == 4, the scale starts at h4. h4's font-size gets calculated
-  as follows:
+  E.g. given a `start` value of `4`, the scale starts at h4. h4's font-size gets calculated as follows:
 
-  h4 font-size = `$font-size` \* `base`.
+  - `h4-font-size` = `$font-size` \* `base`.
 
   Then, the remaining headings scale exponentially:
 
-  h3 font-size = h4 font-size \* `ratio`^1
-  h2 font-size = h4 font-size \* `ratio`^2
-  h1 font-size = h4 font-size \* `ratio`^3
+  - `h3-font-size` = `h4-font-size` \* `ratio`<sup>1</sup>
+
+  - `h2-font-size` = `h4-font-size` \* `ratio`<sup>2</sup>
+
+  - `h1-font-size` = `h4-font-size` \* `ratio`<sup>3</sup>
 
 * Default:
 
@@ -137,7 +135,7 @@ article {
 
 ### `$whitespace-scale`
 
-- Same concept as $font-size-scale.
+- Same concept as `$font-size-scale`.
 
 - Default:
 
