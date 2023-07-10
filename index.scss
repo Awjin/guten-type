@@ -1,3 +1,5 @@
-@forward "src/config";
-@forward "src/typography";
-@forward "src/utils";
+@use "reset";
+
+@forward "utils";
+@forward "config";
+@forward "typography";

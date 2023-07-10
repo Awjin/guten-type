@@ -1,4 +1,4 @@
-@use '../index' as guten-type;
+@use "../index" as guten-type;
 
 html,
 body {
@@ -6,37 +6,37 @@ body {
   background: #fff8ea;
 }
 
-body {
-  @include guten-type.set(
-    $responsive-breakpoint: 1200px,
-  );
-  @include guten-type.press();
-}
-
-main {
-  max-width: 38rem;
-  margin: 0 auto 25vh;
-  padding: 0 1.5rem;
+header {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
 
   img {
-    border: 2px solid guten-type.color('light');
+    height: 2rem;
+    margin: 0;
   }
 }
 
-header {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
+article {
+  @include guten-type.press();
 
-  img {
-    height: 2.25rem;
-    margin: 0;
-    padding: 0.5rem;
+  max-width: 65ch;
+  margin: 0 auto 25vh auto;
+  padding: 0 1.5rem;
 
-    &:hover,
-    &:focus,
-    &:active {
-      transform: scale(1.15);
-    }
+  img,
+  pre {
+    border: 1px solid guten-type.color("light");
+    border-radius: 4px;
+  }
+
+  pre {
+    padding: 1rem 1.25rem 1.5rem 1.25rem;
+    background: rgba(1, 2, 3, 0.075);
+  }
+
+  blockquote {
+    padding-left: 0.75rem;
+    border-left: 4px solid rgba(1, 2, 3, 0.15);
   }
 }

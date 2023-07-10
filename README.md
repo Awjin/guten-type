@@ -1,149 +1,150 @@
 # GutenType
 
-### [See the demo](https://awjin.me/guten-type)
-
-### [Install via npm](https://npmjs.org/guten-type)
+**[See the demo](https://awjin.me/guten-type)**
 
 GutenType is a Sass library that creates correct typography. Give it base values
 like `font-size`, and it automatically generates styles for you.
 
-## `press()`
-
-The `press()` mixin assigns a base font-size to the html element, so that all
-other styles can be derived from 1rem. Then, it generates the typography system.
+## Usage
 
 ```scss
-@use 'guten-type';
+@use "guten-type";
 
-main {
+article {
   @include guten-type.press();
 }
 ```
 
-## `set()`
-
-The `set()` mixin allows you to customize the default styles.
+## Customization
 
 ```scss
-@use 'guten-type';
+@use "guten-type";
 
-main {
-  /* STEP 1 (optional): Configure the module. */
+article {
   @include guten-type.set(
-    $line-height: 1.4,
-    $font-size: 18px,
+    $font-size: 20px,
     $font-stack: (
-      'heading': ('PT Serif', serif),
-      'body': ('PT Sans', sans-serif),
-      'mono': ('Roboto Mono', monospace),
-    ),
+      "serif": (
+        Baskerville,
+      ),
+      "sans": (
+        Helvetica,
+      ),
+      "mono": (
+        Consolas,
+      ),
+    )
   );
 
-  /* STEP 2: Use the module. */
   @include guten-type.press();
 }
 ```
 
-These are the options you can pass to `set()`:
+### `$font-size`
 
-#### `$font-size`
+- The body text's font-size. Must be in px. This is automatically scaled smaller for elements like captions, code, etc.
 
-- The body text's font-size. Must be in px.
+- Default: `18px`
 
-- Default: `16px`
+### `$font-stack`
 
-#### `$responsive-breakpoint`
+- The various serif, sans-serif, and monospace fonts used for all text.
 
-- The min breakpoint at which font-size will switch from static to responsive
-units (i.e. the font-size increases along with the viewport size, therefore
-supporting infinitely large viewports). Must be in px.
+- Default:
 
-- Default: `-1px` (negative values are ignored)
+  ```scss
+  (
+    "serif": (
+      "Iowan Old Style",
+      "Palatino Linotype",
+      "URW Palladio L",
+      P052,
+      serif,
+    ),
 
-#### `$line-height`
+    "sans": (
+      Inter,
+      Roboto,
+      "Helvetica Neue",
+      "Arial Nova",
+      "Nimbus Sans",
+      Arial,
+      sans-serif,
+    ),
 
-- The body text's line-height.
+    "mono": (
+      ui-monospace,
+      "Cascadia Code",
+      "Source Code Pro",
+      Menlo,
+      Consolas,
+      "DejaVu Sans Mono",
+      monospace,
+    )
+  )
+  ```
+
+### `$line-height`
+
+- The body text's line-height. This is automatically scaled smaller for headings.
 
 - Default: `1.5`
 
-#### `$whitespace`
+### `$color`
+
+- `normal` is used for text. `light` is used for lines (tables, hr, etc.). `action` is used for links.
+
+- Default:
+
+  ```scss
+  (
+    "normal": rgba(1, 2, 3, 0.95),
+    "light": rgba(0, 0, 0, 0.55),
+    "action": rgba(1, 2, 3, 0.95),
+  )
+  ```
+
+### `$whitespace`
 
 - The size of line breaks. Must be in rem.
 
 - Default: `1rem * $line-height`
 
-#### `$font-size-scale`
+### `$font-size-scale`
 
 - The typographic scale for heading font-size.
 
-- `start` is the heading at which the scale starts. Since h5 and h6 are less
-common than h1 - h4, defaults to h4.
+  Given `start` == 4, the scale starts at h4. h4's font-size gets calculated
+  as follows:
 
-- Assuming h4 is the `start`:
-  - h4 font-size = body font-size * `base`.
+  h4 font-size = `$font-size` \* `base`.
 
-- Then, the remaining headings scale exponentially:
-  - h3 font-size = h4 font-size * `ratio`^1
-  - h2 font-size = h4 font-size * `ratio`^2
-  - h1 font-size = h4 font-size * `ratio`^3
+  Then, the remaining headings scale exponentially:
 
-- Default:
+  h3 font-size = h4 font-size \* `ratio`^1
+  h2 font-size = h4 font-size \* `ratio`^2
+  h1 font-size = h4 font-size \* `ratio`^3
+
+* Default:
+
   ```scss
   (
-    'start': 4,
-    'base': 1.33333,
-    'ratio': 1.25,
+    "start": 4,
+    "base": 1.33333,
+    "ratio": 1.25,
   )
   ```
 
-#### `$whitespace-scale`
+### `$whitespace-scale`
 
 - Same concept as $font-size-scale.
 
 - Default:
+
   ```scss
   (
-    'start': 4,
-    'base': 1.5,
-    'ratio': 1.33333,
-  )
-  ```
-
-#### `$font-stack`
-
-- The font-stack for headings, body text, and monospaced text.
-
-- Default:
-  ```scss
-  (
-    'heading': (sans-serif,),
-    'body': (Georgia, serif),
-    'mono': ('Andale Mono', 'Lucida Console', monospace),
-  )
-  ```
-
-#### `$color`
-
-- The text colors. `normal` is used for the body and headings. `light` is used
-selectively for auxiliary text, like captions. `action` is used for links.
-
-- Default:
-  ```scss
-  (
-    'normal': rgba(0, 0, 0, 0.95),
-    'light': rgba(0, 0, 0, 0.6),
-    'action': rgba(10, 30, 220, 0.95),
-  )
-  ```
-
-#### `$border`
-
-- The appearance of items that have a border: table, pre, hr, and blockquote.
-
-- Default:
-  ```scss
-  (
-    'weight': 2px,
-    'color': color('light'),
+    "start": 4,
+    "base": 1.5,
+    "ratio": 1.33333,
   )
   ```

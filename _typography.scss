@@ -1,0 +1,221 @@
+@use "sass:math";
+@use "sass:string";
+@use "config";
+@use "utils";
+
+/**
+ * Generates styles for a complete and correct typography system.
+ *
+ * This assigns config.font-size() to the element, and then derives all
+ * other styles from a baseline of 1rem.
+ *
+ *   ```
+ *   @use 'guten-type';
+ *
+ *   main {
+ *     @include guten-type.press();
+ *   }
+ *   ```
+ *
+ * See `_config.scss` for details on how to customize the default values.
+ */
+@mixin press() {
+  color: config.color("normal");
+  line-height: config.line-height();
+  font-family: config.font-stack("sans");
+  font-size: config.font-size();
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  h1 {
+    @include _heading-style(1);
+  }
+
+  h2 {
+    @include _heading-style(2);
+  }
+
+  h3 {
+    @include _heading-style(3);
+  }
+
+  h4 {
+    @include _heading-style(4);
+  }
+
+  h5 {
+    @include _heading-style(5, 1rem);
+  }
+
+  h6 {
+    @include _heading-style(6, 1rem);
+    font-style: italic;
+    font-weight: normal;
+  }
+
+  p,
+  ol,
+  ul {
+    margin-bottom: config.whitespace();
+  }
+
+  ol,
+  ul {
+    padding-left: 2rem;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  li {
+    margin-bottom: 0.25 * config.whitespace();
+    padding-left: 0.125rem;
+
+    ol,
+    ul {
+      margin: 0.25 * config.whitespace() 0;
+    }
+  }
+
+  p + ol,
+  p + ul {
+    margin-top: -0.25 * config.whitespace();
+  }
+
+  a {
+    color: config.color("action");
+    text-decoration: underline;
+    text-decoration-color: config.color("light");
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  sub,
+  sup {
+    position: relative;
+    line-height: 0;
+    font-size: 75%;
+    vertical-align: baseline;
+  }
+
+  sub {
+    bottom: -0.25rem;
+  }
+
+  sup {
+    top: -0.5rem;
+  }
+
+  figure,
+  img,
+  iframe,
+  table,
+  pre,
+  hr {
+    display: block;
+    margin: utils.non-text-whitespace() 0;
+  }
+
+  // Since the whitespace underneath a header is dictated by the typography
+  // scale, the header dictates the margin between itself and any non-text
+  // siblings. This margin is determined by the header's whitespace, plus a
+  // simulated line-height on the non-text element.
+  @for $i from 1 to 7 {
+    h#{$i} {
+      & + figure,
+      & + img,
+      & + iframe,
+      & + table,
+      & + pre,
+      & + hr {
+        margin-top: utils.heading-whitespace-bottom($i) + 0.5rem;
+      }
+    }
+  }
+
+  figcaption,
+  caption {
+    margin-bottom: -0.5rem; // Shrink the non-text-whitespace of the parent.
+    font-size: 90%;
+    font-style: italic;
+    font-family: config.font-stack("serif");
+  }
+
+  figcaption {
+    margin-top: -0.66667 * utils.non-text-whitespace();
+  }
+
+  caption {
+    margin-top: 0.33333 * utils.non-text-whitespace();
+    caption-side: bottom;
+  }
+
+  tbody {
+    font-size: 90%;
+  }
+
+  thead,
+  tfoot,
+  th {
+    font-weight: bold;
+  }
+
+  th,
+  td {
+    border: 1px solid config.color("light");
+    padding: 0.3rem 0.5rem;
+  }
+
+  code {
+    font-family: config.font-stack("mono");
+    font-variant-ligatures: none;
+    font-size: 80%;
+  }
+
+  pre {
+    line-height: 1.2;
+    overflow-x: auto;
+  }
+
+  blockquote {
+    margin: config.whitespace() 0;
+    font-family: config.font-stack("serif");
+    font-style: italic;
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    background: config.color("light");
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Private
+////////////////////////////////////////////////////////////////////////////////
+
+// Shared styles for headings, based on the typographic scale.
+@mixin _heading-style(
+  $heading-idx,
+  $font-size: utils.heading-font-size($heading-idx)
+) {
+  $whitespace-top: utils.heading-whitespace-top($heading-idx);
+  $whitespace-bottom: utils.heading-whitespace-bottom($heading-idx);
+
+  margin: $whitespace-top 0 $whitespace-bottom 0;
+  line-height: 0.9 * config.line-height();
+  font-family: config.font-stack("serif");
+  font-size: $font-size;
+  font-weight: bold;
+}

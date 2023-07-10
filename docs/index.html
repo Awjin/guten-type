@@ -1,206 +1,136 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-  <link rel="stylesheet" href="assets/index.css">
-  <title>GutenType Demo</title>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#fff8ea" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1, initial-scale=1"
+    />
+    <link rel="stylesheet" href="assets/index.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <title>GutenType</title>
+  </head>
 
-<body>
-  <header>
-    <a href="https://github.com/awjin/guten-type/">
-      <img src="assets/github.png" alt="Github link" />
-    </a>
-  </header>
+  <body>
+    <header>
+      <a href="https://github.com/awjin/guten-type/">
+        <img src="assets/github.png" alt="Github link" />
+      </a>
+    </header>
 
-  <main>
-    <h1>What is GutenType?</h1>
-    <h2>What is GutenType?</h2>
-    <h3>What is GutenType?</h3>
-    <h4>What is GutenType?</h4>
-    <h5>What is GutenType?</h5>
-    <h6>
-    Jan 31, 2021 &ndash; <a href="https://awjin.me">Awjin Ahn</a>
-    </h6>
+    <article>
+      <h1>What is GutenType?</h1>
 
-    <hr>
+      <h2>What is GutenType?</h2>
 
-    <p>
-      <strong>GutenType</strong> is a Sass library that creates correct
-      typography.
-    </p>
+      <h3>What is GutenType?</h3>
 
-    <blockquote>
-      Wait. Can typography be correct?
-    </blockquote>
+      <h4>What is GutenType?</h4>
 
-    <p>
-      Yes. Typography was solved centuries ago, through science, by print
-      publishers. They created rules for proportionally scaling the size of
-      headings, calculating whitespace, positioning lines, etc. that, <em>when
-      systematically applied</em>, yield text that is a joy to read. This
-      explains why books feel nicer to read in print than on the web. Of course,
-      the screen beaming light into your eyes is another big reason, but there
-      are <strong>tons</strong> of improvements we can bring to web typography
-      to close the UX gap.
-    </p>
+      <h5>What is GutenType?</h5>
 
-    <p>
-      We need to translate the rules of print into code. As it turns out, this
-      task is tedious and weird. For example, because text has a line-height,
-      the same value of whitespace applied to the margin of a <code>p</code> is
-      larger than when it's applied to the margin of an <code>img</code>. There
-      are countless minutiae like this to comb through and fix.
-    </p>
+      <h6>Jan 31, 2021 &ndash; <a href="https://awjin.me">Awjin Ahn</a></h6>
 
-    <blockquote>
-      And, anecdotally&mdash;I've wasted countless hours throughout my career
-      fiddling with the margins of an <code>h3</code> until it "felt" just
-      "right". I'm tired of making these imprecise, manual tweaks constantly.
-    </blockquote>
+      <hr />
 
-    <p>So... what's the solution?</p>
+      <p>
+        Typography was solved centuries ago by print publishers, who created
+        rules for font size, line height, etc. to improve the readability of
+        text.
+      </p>
 
-    <h2>GutenType. Hear me out.</h2>
+      <p>
+        <a href="https://github.com/awjin/guten-type/">
+          <strong>GutenType</strong></a
+        >
+        is a Sass library that translates those rules into CSS. You configure it
+        with values (like a base font size), and it generates correct
+        typographic styles for you. With minimal effort, GutenType makes your
+        HTML read more like print.
+      </p>
 
-    <p>
-      It handles all of that minutiae for you. Calling its <code>press()</code>
-      mixin assigns a base font-size to the <code>html</code> element, so that
-      all other styles can be derived from <code>1rem</code>. Then, it generates
-      the typography system.
-    </p>
+      <pre><code>@use 'guten-type';
 
-    <pre><code>@use 'guten-type';
-
-main {
-  @include guten-type.press();
-}</code></pre>
-
-    <p>
-      It ships with a bunch of
-      <a href="https://github.com/Awjin/guten-type/blob/master/src/_config.scss">default base values</a>.
-      This website is styled with those defaults. To customize them, call the
-      <code>set()</code> mixin before pressing. Since GutenType has typographic
-      rules baked in, it will always generate correct styles from the given
-      config.
-    </p>
-
-    <pre><code>@use 'guten-type';
-
-main {
-  /* STEP 1 (optional): Configure the module. */
+article {
   @include guten-type.set(
-    $line-height: 1.4,
-    $font-size: 18px,
-    $font-stack: (
-      'heading': ('PT Serif', serif),
-      'body': ('PT Sans', sans-serif),
-      'mono': ('Roboto Mono', monospace),
-    ),
+    $font-size: 20px,
+    $line-height: 1.5,
   );
 
-  /* STEP 2: Use the module. */
   @include guten-type.press();
-}</code></pre>
+}
+</code></pre>
 
-    <p>
+      <blockquote>
+        GutenType ships with sensible default values. This website uses those
+        defaults, with just a
+        <a
+          href="https://github.com/Awjin/guten-type/blob/master/docs/index.scss"
+          >few added styles</a
+        >.
+      </blockquote>
 
-    </p>
+      <h2>Comprehensive</h2>
 
-    <p>
-      This is especially powerful if you have a static website or blog that
-      builds HTML from Markdown, since <code>press()</code> styles every element
-      that Markdown can generate. Configure it once, then enjoy your super
-      readable website. As an example, <a href="https://awjin.me">this website</a>
-      is styled throughout with GutenType, and has a blog section made with
-      Jekyll.
-    </p>
+      <p>
+        GutenType properly styles all HTML elements that can be rendered from
+        Markdown.
+      </p>
 
-    <h3>Going Deeper</h3>
+      <figure>
+        <img src="assets/sad-boi.png" alt="Sad boi" />
+        <figcaption>For example, this is what an image looks like.</figcaption>
+      </figure>
 
-    <p>
-      One key concept is typographic scale. To create rhythm and harmony, text
-      size should scale at a fixed ratio as you move up the hierarchy. If
-      <code>p</code> is sized at <code>1rem</code>, the smallest heading should
-      have a font-size of <code>1rem * ratio</code>, the next heading up should
-      be <code>1rem * ratio</code><sup><code>2</code></sup>, and so on. The same
-      applies to whitespace. GutenType does these calculations for you.
-    </p>
+      <p>
+        By default, it uses a
+        <a href="https://modernfontstacks.com">modern font stack</a>:
+      </p>
 
-    <figure>
-      <img src="assets/sad-boi.png" alt="Sad boi">
-      <figcaption>Writing without GutenType: sad</figcaption>
-    </figure>
+      <table>
+        <tr>
+          <th>Serif</th>
+          <td>
+            Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif
+          </td>
+        </tr>
 
-    <p>
-      There's also the concept of a <code>responsive-breakpoint</code>. If set,
-      the font-size will seamlessly transition from static to responsive at the
-      breakpoint. For example, let's say that font-size is <code>16px</code> and
-      the <code>responsive-breakpoint</code> is <code>1200px</code>. GutenType
-      calculates how much <code>vw</code> is equal to <code>16px</code> at a
-      viewport size of <code>1200px</code>. When the breakpoint triggers, it
-      sets font-size to that <code>vw</code> value. As the viewport increases
-      beyond the breakpoint, font-size scales with it, "locking in" the relative
-      size and proportions of text. It's hard to describe in words, so I'd
-      encourage you to resize this window and see how it behaves.
-    </p>
+        <tr>
+          <th>Sans</th>
+          <td>
+            Inter, Roboto, Helvetica Neue, Arial Nova, Nimbus Sans, Arial,
+            sans-serif
+          </td>
+        </tr>
 
-    <h4>
-      Other Tidbits
-    </h4>
+        <tr>
+          <th>Mono</th>
+          <td>
+            ui-monospace, Cascadia Code, Source Code Pro, Menlo, Consolas,
+            DejaVu Sans Mono, monospace
+          </td>
+        </tr>
+      </table>
 
-    <p>
-      If you want to use the config values in your Sass code, you can access
-      them via getters like <code>guten-type.whitespace()</code>.
-    </p>
+      <h2>Final thoughts</h2>
 
-    <table>
-      <caption>This is the default font-stack.</caption>
-      <tr>
-        <th>Heading</th>
-        <td>sans-serif</td>
-      </tr>
-      <tr>
-        <th>Body</th>
-        <td>Georgia, serif</td>
-      </tr>
-      <tr>
-        <th>Mono</th>
-        <td>Andale Mono, Lucida Console, monospace</td>
-      </tr>
-    </table>
+      <ul>
+        <li>
+          As frontend engineers, we are responsible for making the web more
+          usable.
+        </li>
 
-    <p>
-      There's more, but I think it's time to wrap up this post.
-    </p>
+        <li>
+          Screens are tough on the eyes. Let's do what we can to improve the
+          ergonomics of reading on the web.
+        </li>
 
-    <h2>Closing Remarks</h2>
-
-    <ol>
-      <li>
-        Thank you for listening to my opinions.
-      </li>
-      <li>
-        Whitespace is hard but always worth it.
-      </li>
-      <li>
-        If your website is text-heavy, GutenType could strongly improve its UX
-        in just two lines of code.
-        <ul>
-          <li>
-            As an added bonus, you'll never have to write typographic styles
-            again.
-          </li>
-        </ul>
-      </li>
-    </ol>
-
-    <p>
-      Here's the <a href="https://github.com/awjin/guten-type">Github source</a>
-      and the <a href="https://npmjs.com/package/guten-type">npm package</a>. I
-      hope you find it helpful. Please file an issue or a PR for improvements.
-    </p>
-  </main>
-</body>
+        <li>
+          Check it out
+          <a href="https://github.com/awjin/guten-type/">on Github</a>.
+        </li>
+      </ul>
+    </article>
+  </body>
 </html>
